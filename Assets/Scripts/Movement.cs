@@ -33,6 +33,11 @@ public class Movement : MonoBehaviour
         {
             MovePlayer();
         }
+
+        if (VendingMachine.VM.inProximity = true)
+        {
+            isMotivated = true;
+        }
     }
 
     void MovePlayer()
@@ -42,6 +47,8 @@ public class Movement : MonoBehaviour
         float xMovement = Input.GetAxis("Horizontal");
         float yMovement = Input.GetAxis("Vertical");
         bool spacePressed = Input.GetKey(KeyCode.Space);
+
+
 
         if (IceMachine.IM.isCrossed == true)
         {

@@ -8,6 +8,7 @@ public class IceMachine : MonoBehaviour
 
     [Header("Set Dynamically")]
     public bool isCrossed = false;
+    //butts
     
     void Awake()
     {
