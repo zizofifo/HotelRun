@@ -51,15 +51,16 @@ public class Movement : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
         Debug.Log("Collision");
-        if (other.gameObject.tag == "StoryFloor")
+
+        switch (other.gameObject.tag)
         {
-            Debug.Log("Collision handled");
-            
-            if (isJumping)
-            {
-                isJumping = false;
-                canJump = true;
-            }
+            case "StoryFloor":
+                if (isJumping)
+                {
+                    isJumping = false;
+                    canJump = true;
+                }
+                break;
         }
     }
 }
