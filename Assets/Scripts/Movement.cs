@@ -17,6 +17,7 @@ public class Movement : MonoBehaviour
     private bool isJumping = false;
     [SerializeField]
     private bool canJump = true;
+    private Rigidbody rb;
 
     void Awake()
     {
@@ -26,8 +27,18 @@ public class Movement : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
     // Update is called once per frame
     void Update()
+    {
+
+    }
+
+    void FixedUpdate()
     {
         if (isPlayerControlled)
         {
@@ -61,14 +72,14 @@ public class Movement : MonoBehaviour
             position.x += xMovement * speedMultiplier * Time.deltaTime;
         }
 
+        transform.position = position;
+
         if (spacePressed && !isJumping && canJump)
         {
             isJumping = true;
             canJump = false;
-            position.y += jumpHeight;
+            rb.AddForce(0, jumpHeight, 0, ForceMode.Impulse);
         }
-
-        transform.position = position;
     }
 
     void OnCollisionEnter(Collision other)
