@@ -6,7 +6,8 @@ public class Movement : MonoBehaviour
 {
     // Start is called before the first frame update
     public bool isPlayerControlled = false;
-    public float speedMultiplier = 1; 
+    public float speedMultiplier = 1f; 
+    public float jumpHeight = 1f;
 
     [SerializeField]
     private bool isJumping = false;
@@ -41,7 +42,7 @@ public class Movement : MonoBehaviour
         {
             isJumping = true;
             canJump = false;
-            position.y += 1f;
+            position.y += jumpHeight;
         }
 
         transform.position = position;
@@ -50,15 +51,16 @@ public class Movement : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
         Debug.Log("Collision");
-        if (other.gameObject.tag == "StoryFloor")
+
+        switch (other.gameObject.tag)
         {
-            Debug.Log("Collision handled");
-            
-            if (isJumping)
-            {
-                isJumping = false;
-                canJump = true;
-            }
+            case "StoryFloor":
+                if (isJumping)
+                {
+                    isJumping = false;
+                    canJump = true;
+                }
+                break;
         }
     }
 }
