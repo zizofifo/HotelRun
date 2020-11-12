@@ -35,7 +35,7 @@ public class Movement : MonoBehaviour
         float yMovement = Input.GetAxis("Vertical");
         bool spacePressed = Input.GetKey(KeyCode.Space);
 
-        position.x += xMovement * speedMultiplier;
+        position.x += xMovement * speedMultiplier * Time.deltaTime;
 
         if (spacePressed && !isJumping && canJump)
         {
