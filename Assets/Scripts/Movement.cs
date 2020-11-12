@@ -25,7 +25,10 @@ public class Movement : MonoBehaviour
         {
             M = this;
         }
+    }
 
+    void Start()
+    {
         rb = GetComponent<Rigidbody>();
     }
 
@@ -68,7 +71,7 @@ public class Movement : MonoBehaviour
         {
             isJumping = true;
             canJump = false;
-            rb.AddForce(jumpHeight * Vector3.up * rb.mass);
+            rb.AddForce(0, jumpHeight, 0, ForceMode.Impulse);
         }
     }
 
