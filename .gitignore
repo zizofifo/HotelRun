@@ -70,3 +70,7 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Folder for assets for local tests that shouldn't be committed
+/[Aa]ssets/[Ll]ocal[Tt]ests/
+/[Aa]ssets/[Ll]ocal[Tt]ests.meta
