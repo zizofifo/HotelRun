@@ -17,6 +17,7 @@ public class Movement : MonoBehaviour
     private bool isJumping = false;
     [SerializeField]
     private bool canJump = true;
+    private Rigidbody rb;
 
     void Awake()
     {
@@ -24,10 +25,17 @@ public class Movement : MonoBehaviour
         {
             M = this;
         }
+
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
+    {
+
+    }
+
+    void FixedUpdate()
     {
         if (isPlayerControlled)
         {
@@ -54,14 +62,14 @@ public class Movement : MonoBehaviour
             position.x += xMovement * speedMultiplier * Time.deltaTime;
         }
 
+        transform.position = position;
+
         if (spacePressed && !isJumping && canJump)
         {
             isJumping = true;
             canJump = false;
-            position.y += jumpHeight;
+            rb.AddForce(jumpHeight * Vector3.up * rb.mass);
         }
-
-        transform.position = position;
     }
 
     void OnCollisionEnter(Collision other)
