@@ -4,19 +4,26 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    static public Movement M;
     // Start is called before the first frame update
-    public bool isPlayerControlled = false;
+    public bool isPlayerControlled = true;
     public float speedMultiplier = 1f; 
     public float jumpHeight = 1f;
+    public bool isMotivated = false;
+
+
 
     [SerializeField]
     private bool isJumping = false;
     [SerializeField]
     private bool canJump = true;
 
-    void Start()
+    void Awake()
     {
-        
+        if (M == null)
+        {
+            M = this;
+        }
     }
 
     // Update is called once per frame
@@ -36,7 +43,16 @@ public class Movement : MonoBehaviour
         float yMovement = Input.GetAxis("Vertical");
         bool spacePressed = Input.GetKey(KeyCode.Space);
 
-        position.x += xMovement * speedMultiplier * Time.deltaTime;
+        if (IceMachine.IM.isCrossed == true)
+        {
+            float halfSpeed = speedMultiplier / 2;
+            position.x += xMovement * halfSpeed * Time.deltaTime;
+        }
+
+        else
+        {
+            position.x += xMovement * speedMultiplier * Time.deltaTime;
+        }
 
         if (spacePressed && !isJumping && canJump)
         {
