@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VendingMachine : MonoBehaviour
+public class Crowd : MonoBehaviour
 {
-    static public VendingMachine VM;
+    static public Crowd C;
 
     [Header("Set dynamically")]
-    public bool inProximity = false;
-    
+    public bool inCrowd = false;
+
     void Awake()
     {
-        if (VM == null)
+        if (C == null)
         {
-            VM = this;
+            C = this;
         }
     }
 
@@ -25,12 +25,12 @@ public class VendingMachine : MonoBehaviour
 
         if (distance <= 3)
         {
-            inProximity = true;
+            inCrowd = true;
         }
 
         else
         {
-            inProximity = false;
+            inCrowd = false;
         }
     }
 }
