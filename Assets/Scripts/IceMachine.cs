@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class IceMachine : MonoBehaviour
 {
-    static public IceMachine IM;
+    //static public IceMachine IM;
 
-    [Header("Set Dynamically")]
-    public bool isCrossed = false;
+    //[Header("Set Dynamically")]
+    //public bool isCrossed = false;
     //butts
     
     void Awake()
     {
-        if (IM == null)
-        {
-            IM = this;
-        }
+        
     }
 
     // Update is called once per frame
@@ -26,12 +23,12 @@ public class IceMachine : MonoBehaviour
 
         if (distance <= 3)
         {
-            isCrossed = true;
+            Movement.Player.crossedIceMachine = true;
         }
 
         else
         {
-            isCrossed = false;
+            Movement.Player.crossedIceMachine = false;
         }
 
     }

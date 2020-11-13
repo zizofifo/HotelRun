@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class Crowd : MonoBehaviour
 {
-    static public Crowd C;
+    //static public Crowd C;
 
-    [Header("Set dynamically")]
-    public bool inCrowd = false;
+    //[Header("Set dynamically")]
+    //public bool inCrowd = false;
 
     void Awake()
     {
-        if (C == null)
-        {
-            C = this;
-        }
+        
     }
 
     // Update is called once per frame
@@ -25,12 +22,12 @@ public class Crowd : MonoBehaviour
 
         if (distance <= 3)
         {
-            inCrowd = true;
+            Movement.Player.inCrowd = true;
         }
 
         else
         {
-            inCrowd = false;
+            Movement.Player.inCrowd = false;
         }
     }
 }

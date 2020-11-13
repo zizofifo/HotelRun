@@ -11,9 +11,14 @@ public class Movement : MonoBehaviour
     public bool isPlayerControlled = true;
     public float speedMultiplier = 5f;
     public float jumpHeight = 8f;
+
+    [Header("Set dynamically")]
     public bool isMotivated = false;
+    public bool inCrowd = false;
+    public bool crossedIceMachine = false;
 
     private float startSpeed;
+    private bool powerUpCheck = false;
 
 
 
@@ -64,11 +69,11 @@ public class Movement : MonoBehaviour
         bool spacePressed = Input.GetKey(KeyCode.Space);
 
 
-        if (VendingMachine.VM.inProximity == true)
+        if (isMotivated == true)
         {
-            if (isMotivated == false)
+            if (powerUpCheck == false)
             {
-                isMotivated = true;
+                powerUpCheck = true;
                 PowerUp();
                 Invoke("PowerDown", 5f);
             }
@@ -76,17 +81,17 @@ public class Movement : MonoBehaviour
 
 
 
-        if (IceMachine.IM.isCrossed == true && isMotivated == true)
+        if (crossedIceMachine == true && powerUpCheck == true)
         {
             Stun();
         }
 
-        if (Crowd.C.inCrowd == true)
+        if (inCrowd == true)
         {
             position.x += xMovement * (speedMultiplier / 2) * Time.deltaTime;
         }
 
-        else if (Crowd.C.inCrowd == false)
+        else if (inCrowd == false)
         {
             position.x += xMovement * speedMultiplier * Time.deltaTime;
         }
@@ -124,16 +129,16 @@ public class Movement : MonoBehaviour
 
     void PowerDown()
     {
-        if (isMotivated == true)
+        if (powerUpCheck == true)
         {
             speedMultiplier = speedMultiplier / 2;
-            isMotivated = false;
+            powerUpCheck = false;
         }
     }
 
     void Stun()
     {
-        isMotivated = false;
+        powerUpCheck = false;
         float noSpeed = 0;
 
         speedMultiplier = noSpeed;

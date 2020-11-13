@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class VendingMachine : MonoBehaviour
 {
-    static public VendingMachine VM;
+    //static public VendingMachine VM;
 
-    [Header("Set dynamically")]
-    public bool inProximity = false;
+    //[Header("Set dynamically")]
+    //public bool inProximity = false;
     
     void Awake()
     {
-        if (VM == null)
-        {
-            VM = this;
-        }
+
     }
 
     // Update is called once per frame
@@ -25,12 +22,12 @@ public class VendingMachine : MonoBehaviour
 
         if (distance <= 3)
         {
-            inProximity = true;
+            Movement.Player.isMotivated = true;
         }
 
         else
         {
-            inProximity = false;
+            Movement.Player.isMotivated = false;
         }
     }
 }
