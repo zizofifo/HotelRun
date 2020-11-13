@@ -5,13 +5,14 @@ using UnityEngine;
 public class Crowd : MonoBehaviour
 {
     //static public Crowd C;
+    
 
     //[Header("Set dynamically")]
     //public bool inCrowd = false;
 
     void Awake()
     {
-        
+       
     }
 
     // Update is called once per frame

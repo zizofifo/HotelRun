@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Control : MonoBehaviour{
     public void Play(){
-        SceneManager.LoadScene("HotelRunScene");
+        SceneManager.LoadScene("Stage01Scene");
     }
 
     public void Quit(){
