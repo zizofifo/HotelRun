@@ -429,8 +429,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'CS382, Fall 2020, Final Project
 
-    Reed Collins, Cole Howard, Clayton
-    Schardan, and Harrison Schmidt'
+    Reed Collins, Cole Howard, Clayton Schardan, and Harrison Schmidt'
 --- !u!222 &492790483
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -895,4 +894,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f48e0767840c2e4f95164dee341d0eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetSceneName: SampleScene
+  targetSceneName: Stage01Scene
