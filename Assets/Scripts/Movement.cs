@@ -7,8 +7,8 @@ public class Movement : MonoBehaviour
     static public Movement M;
     // Start is called before the first frame update
     public bool isPlayerControlled = true;
-    public float speedMultiplier = 1f; 
-    public float jumpHeight = 1f;
+    public float speedMultiplier = 5f;
+    public float jumpHeight = 8f;
     public bool isMotivated = false;
 
     private float startSpeed;
