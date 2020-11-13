@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    static public Movement M;
+    static public Movement Player;
+    //static public GameObject playerCam;
     // Start is called before the first frame update
+    public GameObject PlayerSprite;
     public bool isPlayerControlled = true;
     public float speedMultiplier = 5f;
     public float jumpHeight = 8f;
@@ -23,11 +25,12 @@ public class Movement : MonoBehaviour
 
     void Awake()
     {
-        if (M == null)
+        if (Player == null)
         {
-            M = this;
+            Player = this;
         }
-
+        PlayerSprite.transform.position = transform.position;
+        //playerCam = PlayerSprite;
         startSpeed = speedMultiplier;
     }
 
@@ -47,6 +50,7 @@ public class Movement : MonoBehaviour
         if (isPlayerControlled)
         {
             MovePlayer();
+            PlayerCam.POI = PlayerSprite;
         }
 
     }
