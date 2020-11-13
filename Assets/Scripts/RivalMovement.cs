@@ -74,6 +74,8 @@ public class RivalMovement : MonoBehaviour
                 isJumping = false;
                 canJump = false;
                 break;
+            case "Player":
+                break;
             case "Obstacle":
             default:
                 performJump = true;
