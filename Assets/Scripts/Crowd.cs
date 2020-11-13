@@ -18,7 +18,7 @@ public class Crowd : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 pos = this.transform.position;
+        Vector3 pos = transform.position;
         float distance = Vector3.Distance(pos, Movement.Player.transform.position);
 
         if (distance <= 3)

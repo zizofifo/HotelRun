@@ -22,8 +22,10 @@ public class Goal : MonoBehaviour
         switch (obj.gameObject.tag)
         {
             case "Player":
+                SceneManager.LoadScene("GameOverScene");
                 break;
             case "Rival":
+                SceneManager.LoadScene("GameOverScene");
                 break;
             default:
                 break;
