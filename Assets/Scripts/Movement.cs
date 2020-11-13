@@ -11,6 +11,8 @@ public class Movement : MonoBehaviour
     public float jumpHeight = 1f;
     public bool isMotivated = false;
 
+    private float startSpeed;
+
 
 
     [SerializeField]
@@ -24,6 +26,8 @@ public class Movement : MonoBehaviour
         {
             M = this;
         }
+
+        startSpeed = speedMultiplier;
     }
 
     // Update is called once per frame
@@ -34,10 +38,6 @@ public class Movement : MonoBehaviour
             MovePlayer();
         }
 
-        if (VendingMachine.VM.inProximity = true)
-        {
-            isMotivated = true;
-        }
     }
 
     void MovePlayer()
@@ -49,14 +49,29 @@ public class Movement : MonoBehaviour
         bool spacePressed = Input.GetKey(KeyCode.Space);
 
 
-
-        if (IceMachine.IM.isCrossed == true)
+        if (VendingMachine.VM.inProximity == true)
         {
-            float halfSpeed = speedMultiplier / 2;
-            position.x += xMovement * halfSpeed * Time.deltaTime;
+            if (isMotivated == false)
+            {
+                isMotivated = true;
+                PowerUp();
+                Invoke("PowerDown", 5f);
+            }
         }
 
-        else
+
+
+        if (IceMachine.IM.isCrossed == true && isMotivated == true)
+        {
+            Stun();
+        }
+
+        if (Crowd.C.inCrowd == true)
+        {
+            position.x += xMovement * (speedMultiplier / 2) * Time.deltaTime;
+        }
+
+        else if (Crowd.C.inCrowd == false)
         {
             position.x += xMovement * speedMultiplier * Time.deltaTime;
         }
@@ -85,5 +100,36 @@ public class Movement : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    void PowerUp()
+    {
+        speedMultiplier = speedMultiplier * 2;
+    }
+
+    void PowerDown()
+    {
+        if (isMotivated == true)
+        {
+            speedMultiplier = speedMultiplier / 2;
+            isMotivated = false;
+        }
+    }
+
+    void Stun()
+    {
+        isMotivated = false;
+        float noSpeed = 0;
+
+        speedMultiplier = noSpeed;
+        canJump = false;
+        Invoke("setStartSpeed", 3f);
+
+    }
+
+    void setStartSpeed()
+    {
+        speedMultiplier = startSpeed;
+        canJump = true;
     }
 }
