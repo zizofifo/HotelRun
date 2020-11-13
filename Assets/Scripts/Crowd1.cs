@@ -2,17 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crowd : MonoBehaviour
+public class Crowd1 : MonoBehaviour
 {
-    //static public Crowd C;
-    
-
-    //[Header("Set dynamically")]
-    //public bool inCrowd = false;
-
     void Awake()
     {
-       
+
     }
 
     // Update is called once per frame
