@@ -22,12 +22,7 @@ public class VendingMachine : MonoBehaviour
 
         if (distance <= 3)
         {
-            Movement.Player.isMotivated = true;
-        }
-
-        else
-        {
-            Movement.Player.isMotivated = false;
+            Movement.Player.PowerUp();
         }
     }
 }

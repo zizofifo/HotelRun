@@ -18,9 +18,6 @@ public class Movement : MonoBehaviour
     public bool crossedIceMachine = false;
 
     private float startSpeed;
-    private bool powerUpCheck = false;
-
-
 
     [SerializeField]
     private bool isJumping = false;
@@ -70,20 +67,7 @@ public class Movement : MonoBehaviour
         float yMovement = Input.GetAxis("Vertical");
         bool spacePressed = Input.GetKey(KeyCode.Space);
 
-
-        if (isMotivated == true)
-        {
-            if (powerUpCheck == false)
-            {
-                powerUpCheck = true;
-                PowerUp();
-                Invoke("PowerDown", 5f);
-            }
-        }
-
-
-
-        if (crossedIceMachine == true && powerUpCheck == true)
+        if (crossedIceMachine == true)
         {
             Stun();
         }
@@ -124,23 +108,27 @@ public class Movement : MonoBehaviour
         }
     }
 
-    void PowerUp()
+    public void PowerUp()
     {
-        speedMultiplier = speedMultiplier * 2;
+        if (!isMotivated)
+        {
+            isMotivated = true;
+            speedMultiplier = speedMultiplier * 2;
+            Invoke("PowerDown", 5f);
+        }
     }
 
-    void PowerDown()
+    public void PowerDown()
     {
-        if (powerUpCheck == true)
+        if (isMotivated)
         {
             speedMultiplier = speedMultiplier / 2;
-            powerUpCheck = false;
+            isMotivated = false;
         }
     }
 
     void Stun()
     {
-        powerUpCheck = false;
         float noSpeed = 0;
 
         anim.SetBool("hasSlipped", true);
