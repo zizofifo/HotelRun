@@ -429,7 +429,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'CS382, Fall 2020, Final Project
 
-    Reed Collins, Cole Howard, Clayton Schardan, and Harrison Schmidt'
+    Reed Collins, Cole Howard, Clayton
+    Schardan, and Harrison Schmidt'
 --- !u!222 &492790483
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -653,9 +654,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "The 5 Instructions:\n\n\u2022 Get to point x before your CPU opponent.\n\u2022
-    Crowds slow you down.\n\u2022 You gotta jump and run across the luggage carts
-    the bellhops are moving.\n\u2022 Every ice machine has a constantly wet floor.\n\u2022
+  m_Text: "The 5 Instructions:\n\n\u2022 Get to the door at the end of the hall before
+    your CPU opponent.\n\u2022 Crowds slow you down.\n\u2022 You gotta jump and run
+    across the luggage carts.\n\u2022 Every ice machine has a constantly wet floor.\n\u2022
     Caffine from the vending machine makes you faster, but more prone to slipping
     on wet floors."
 --- !u!222 &1486959140

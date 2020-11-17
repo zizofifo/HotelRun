@@ -2,17 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IceMachine : MonoBehaviour
+public class Crowd1 : MonoBehaviour
 {
-    //static public IceMachine IM;
-
-    //[Header("Set Dynamically")]
-    //public bool isCrossed = false;
-    //butts
-    
     void Awake()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -23,13 +17,12 @@ public class IceMachine : MonoBehaviour
 
         if (distance <= 3)
         {
-            Movement.Player.crossedIceMachine = true;
+            Movement.Player.inCrowd = true;
         }
 
         else
         {
-            Movement.Player.crossedIceMachine = false;
+            Movement.Player.inCrowd = false;
         }
-
     }
 }
