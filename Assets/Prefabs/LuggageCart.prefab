@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4576140976520619001}
   - component: {fileID: 9217791768771044251}
   - component: {fileID: 2707350565748727454}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 4641360906244676759}
   - component: {fileID: 5823289462378056035}
   - component: {fileID: 4493056115350078467}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CartBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 643374705976230465}
   - component: {fileID: 3332188431500052422}
   - component: {fileID: 3277922934514906926}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Rail (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 8373832584442463787}
   - component: {fileID: 4775005623587293570}
   - component: {fileID: 1163164233520088580}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Rail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 1908740039969329485}
   - component: {fileID: 649234926480019839}
   - component: {fileID: 2537502467621309854}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Luggage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,7 +495,7 @@ GameObject:
   - component: {fileID: 3804295272263705524}
   - component: {fileID: 5799483971642462695}
   - component: {fileID: 1324872460531290560}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -590,7 +590,7 @@ GameObject:
   - component: {fileID: 2701561707350320852}
   - component: {fileID: 1150145449272406479}
   - component: {fileID: 8493247546859127948}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Wheel (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -686,7 +686,7 @@ GameObject:
   - component: {fileID: 1721217895920558603}
   - component: {fileID: 5936028945273068622}
   - component: {fileID: 1397952209019817469}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -778,9 +778,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 86423176100701689}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: LuggageCart
-  m_TagString: Untagged
+  m_TagString: LuggageCart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
