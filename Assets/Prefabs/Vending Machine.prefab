@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5722931943155195761}
   - component: {fileID: 6275809116380303248}
   - component: {fileID: 1475120878032785590}
+  - component: {fileID: 2663019329711603166}
   m_Layer: 0
   m_Name: Vending Machine
   m_TagString: Untagged
@@ -112,3 +113,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &2663019329711603166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7941336358460894683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5465ba135f1e57b4594ceede1b6f6032, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
