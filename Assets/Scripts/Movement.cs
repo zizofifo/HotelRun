@@ -27,6 +27,7 @@ public class Movement : MonoBehaviour
     [SerializeField]
     private bool canJump = true;
     private Rigidbody rb;
+    private Animator anim;
 
     void Awake()
     {
@@ -42,6 +43,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -112,7 +114,6 @@ public class Movement : MonoBehaviour
 
         switch (other.gameObject.tag)
         {
-            case "LuggageCart":
             case "StoryFloor":
                 if (isJumping)
                 {
@@ -142,6 +143,7 @@ public class Movement : MonoBehaviour
         powerUpCheck = false;
         float noSpeed = 0;
 
+        anim.SetBool("hasSlipped", true);
         speedMultiplier = noSpeed;
         canJump = false;
         Invoke("setStartSpeed", 3f);
@@ -151,6 +153,7 @@ public class Movement : MonoBehaviour
     void setStartSpeed()
     {
         speedMultiplier = startSpeed;
+        anim.SetBool("hasSlipped", false);
         canJump = true;
     }
 }
