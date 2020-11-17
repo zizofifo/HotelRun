@@ -9,6 +9,14 @@ TagManager:
   - StoryWall
   - Obstacle
   - LuggageCart
+  - Crowd
+  - VendingMachine
+  - IceMachine
+  - WetFloorSign
+  - WetStoryFloor
+  - DoorToRoom
+  - Stairwell
+  - Elevator
   layers:
   - Default
   - TransparentFX
