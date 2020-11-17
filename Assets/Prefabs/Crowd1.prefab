@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7881645516330039948}
   m_Layer: 0
   m_Name: Crowd1
-  m_TagString: Untagged
+  m_TagString: Crowd
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

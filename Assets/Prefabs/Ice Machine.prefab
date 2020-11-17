@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5623052082792506145}
   m_Layer: 0
   m_Name: Ice Machine
-  m_TagString: Untagged
+  m_TagString: IceMachine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
