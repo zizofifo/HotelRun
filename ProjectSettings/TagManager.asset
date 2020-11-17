@@ -8,6 +8,7 @@ TagManager:
   - StoryFloor
   - StoryWall
   - Obstacle
+  - LuggageCart
   layers:
   - Default
   - TransparentFX
