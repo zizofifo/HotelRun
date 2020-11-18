@@ -9,7 +9,8 @@ public class Control : MonoBehaviour{
     }
 
     public void Quit(){
-        Application.Quit();
-        Debug.Log("You have successfully quit the game!");
+        SceneManager.LoadScene("TitleScreenScene");
+        //Application.Quit();
+        //Debug.Log("You have successfully quit the game!");
     }
 }
