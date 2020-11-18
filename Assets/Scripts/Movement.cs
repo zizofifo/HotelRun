@@ -94,7 +94,7 @@ public class Movement : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        Debug.Log("Collision");
+        Debug.Log("Player: Enter Collision with " + other.gameObject.tag);
 
         switch (other.gameObject.tag)
         {
@@ -105,6 +105,41 @@ public class Movement : MonoBehaviour
                     canJump = true;
                 }
                 break;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Player: Enter Trigger with " + other.gameObject.tag);
+
+        switch (other.gameObject.tag)
+        {
+                case "Crowd":
+                    speedMultiplier /= 2;
+                    inCrowd = true;
+                    break;
+        }
+    }
+
+    void OnCollisionExit(Collision other)
+    {
+        Debug.Log("Player: Exit Collision with " + other.gameObject.tag);
+
+        switch (other.gameObject.tag)
+        {
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        Debug.Log("Player: Exit Trigger with " + other.gameObject.tag);
+
+        switch (other.gameObject.tag)
+        {
+                case "Crowd":
+                    speedMultiplier *= 2;
+                    inCrowd = false;
+                    break;
         }
     }
 
