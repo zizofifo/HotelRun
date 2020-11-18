@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4830447592382523969}
   - component: {fileID: 944615155085906498}
+  - component: {fileID: 1569181404730629482}
   - component: {fileID: -6898381469602518359}
   m_Layer: 0
   m_Name: Crowds
@@ -45,8 +46,21 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.5, y: 4.7, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.75, y: 4.19, z: 2}
+  m_Center: {x: 0.76, y: 0.05, z: 0}
+--- !u!65 &1569181404730629482
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4830447592382523970}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1.56, y: 3.64, z: 2}
+  m_Center: {x: -0.86, y: -0.23, z: 0}
 --- !u!54 &-6898381469602518359
 Rigidbody:
   m_ObjectHideFlags: 0
