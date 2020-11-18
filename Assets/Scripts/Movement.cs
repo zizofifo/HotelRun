@@ -114,6 +114,10 @@ public class Movement : MonoBehaviour
 
         switch (other.gameObject.tag)
         {
+                case "Crowd":
+                    speedMultiplier /= 2;
+                    inCrowd = true;
+                    break;
         }
     }
 
@@ -132,6 +136,10 @@ public class Movement : MonoBehaviour
 
         switch (other.gameObject.tag)
         {
+                case "Crowd":
+                    speedMultiplier *= 2;
+                    inCrowd = false;
+                    break;
         }
     }
 

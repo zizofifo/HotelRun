@@ -21,7 +21,7 @@ public class Crowd : MonoBehaviour
         Vector3 pos = transform.position;
         float distance = Vector3.Distance(pos, Movement.Player.transform.position);
 
-        if (distance <= 3)
+        /*if (distance <= 3)
         {
             Movement.Player.inCrowd = true;
         }
@@ -29,6 +29,6 @@ public class Crowd : MonoBehaviour
         else
         {
             Movement.Player.inCrowd = false;
-        }
+        }*/
     }
 }
