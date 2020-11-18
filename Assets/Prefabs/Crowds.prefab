@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4830447592382523969}
   - component: {fileID: 6245428884036627662}
+  - component: {fileID: 944615155085906498}
+  - component: {fileID: -6898381469602518359}
   m_Layer: 0
   m_Name: Crowds
   m_TagString: Crowd
@@ -45,6 +47,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de6d68b18ffeb4d46ac672b289f00335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &944615155085906498
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4830447592382523970}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.2, y: 4, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &-6898381469602518359
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4830447592382523970}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1001 &4611258280636056378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -117,10 +148,6 @@ PrefabInstance:
     - target: {fileID: 5641755860514609921, guid: 7ac4c305be22cc44bb94f49295d172de, type: 3}
       propertyPath: m_Name
       value: Crowd2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5641755860514609921, guid: 7ac4c305be22cc44bb94f49295d172de, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6607679720949979234, guid: 7ac4c305be22cc44bb94f49295d172de, type: 3}
       propertyPath: m_LocalPosition.x
