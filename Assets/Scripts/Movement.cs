@@ -15,7 +15,7 @@ public class Movement : MonoBehaviour
     [Header("Set dynamically")]
     public bool isMotivated = false;
     public bool inCrowd = false;
-    public bool crossedIceMachine = false;
+    public bool isStunned = false;
 
     private float startSpeed;
 
@@ -67,20 +67,7 @@ public class Movement : MonoBehaviour
         float yMovement = Input.GetAxis("Vertical");
         bool spacePressed = Input.GetKey(KeyCode.Space);
 
-        if (crossedIceMachine == true)
-        {
-            Stun();
-        }
-
-        if (inCrowd == true)
-        {
-            position.x += xMovement * (speedMultiplier / 2) * Time.deltaTime;
-        }
-
-        else if (inCrowd == false)
-        {
-            position.x += xMovement * speedMultiplier * Time.deltaTime;
-        }
+        position.x += xMovement * speedMultiplier * Time.deltaTime;
 
         transform.position = position;
 
@@ -114,6 +101,12 @@ public class Movement : MonoBehaviour
 
         switch (other.gameObject.tag)
         {
+                case "IceMachine":
+                    if (isMotivated)
+                    {
+                        Stun();
+                    }
+                    break;
                 case "Crowd":
                     speedMultiplier /= 2;
                     inCrowd = true;
@@ -162,10 +155,15 @@ public class Movement : MonoBehaviour
         }
     }
 
-    void Stun()
+    public void Stun()
     {
+        if (isStunned)
+        {
+            return;
+        }
         float noSpeed = 0;
 
+        isStunned = true;
         anim.SetBool("hasSlipped", true);
         speedMultiplier = noSpeed;
         canJump = false;
@@ -176,6 +174,7 @@ public class Movement : MonoBehaviour
     void setStartSpeed()
     {
         speedMultiplier = startSpeed;
+        isStunned = false;
         anim.SetBool("hasSlipped", false);
         canJump = true;
     }

@@ -18,6 +18,7 @@ public class IceMachine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         Vector3 pos = this.transform.position;
         float distance = Vector3.Distance(pos, Movement.Player.transform.position);
 
@@ -30,6 +31,6 @@ public class IceMachine : MonoBehaviour
         {
             Movement.Player.crossedIceMachine = false;
         }
-
+        */
     }
 }
