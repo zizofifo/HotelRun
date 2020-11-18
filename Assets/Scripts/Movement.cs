@@ -118,9 +118,11 @@ public class Movement : MonoBehaviour
     {
         Debug.Log("Player: Exit Collision with " + other.gameObject.tag);
 
+        /*
         switch (other.gameObject.tag)
         {
         }
+        */
     }
 
     void OnTriggerExit(Collider other)
