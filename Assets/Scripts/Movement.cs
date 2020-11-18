@@ -18,15 +18,13 @@ public class Movement : MonoBehaviour
     public bool crossedIceMachine = false;
 
     private float startSpeed;
-    private bool powerUpCheck = false;
-
-
 
     [SerializeField]
     private bool isJumping = false;
     [SerializeField]
     private bool canJump = true;
     private Rigidbody rb;
+    private Animator anim;
 
     void Awake()
     {
@@ -42,6 +40,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -68,20 +67,7 @@ public class Movement : MonoBehaviour
         float yMovement = Input.GetAxis("Vertical");
         bool spacePressed = Input.GetKey(KeyCode.Space);
 
-
-        if (isMotivated == true)
-        {
-            if (powerUpCheck == false)
-            {
-                powerUpCheck = true;
-                PowerUp();
-                Invoke("PowerDown", 5f);
-            }
-        }
-
-
-
-        if (crossedIceMachine == true && powerUpCheck == true)
+        if (crossedIceMachine == true)
         {
             Stun();
         }
@@ -112,7 +98,6 @@ public class Movement : MonoBehaviour
 
         switch (other.gameObject.tag)
         {
-            case "LuggageCart":
             case "StoryFloor":
                 if (isJumping)
                 {
@@ -123,25 +108,30 @@ public class Movement : MonoBehaviour
         }
     }
 
-    void PowerUp()
+    public void PowerUp()
     {
-        speedMultiplier = speedMultiplier * 2;
+        if (!isMotivated)
+        {
+            isMotivated = true;
+            speedMultiplier = speedMultiplier * 2;
+            Invoke("PowerDown", 5f);
+        }
     }
 
-    void PowerDown()
+    public void PowerDown()
     {
-        if (powerUpCheck == true)
+        if (isMotivated)
         {
             speedMultiplier = speedMultiplier / 2;
-            powerUpCheck = false;
+            isMotivated = false;
         }
     }
 
     void Stun()
     {
-        powerUpCheck = false;
         float noSpeed = 0;
 
+        anim.SetBool("hasSlipped", true);
         speedMultiplier = noSpeed;
         canJump = false;
         Invoke("setStartSpeed", 3f);
@@ -151,6 +141,7 @@ public class Movement : MonoBehaviour
     void setStartSpeed()
     {
         speedMultiplier = startSpeed;
+        anim.SetBool("hasSlipped", false);
         canJump = true;
     }
 }
