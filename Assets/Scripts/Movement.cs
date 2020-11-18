@@ -72,15 +72,7 @@ public class Movement : MonoBehaviour
             Stun();
         }
 
-        if (inCrowd == true)
-        {
-            position.x += xMovement * (speedMultiplier / 2) * Time.deltaTime;
-        }
-
-        else if (inCrowd == false)
-        {
-            position.x += xMovement * speedMultiplier * Time.deltaTime;
-        }
+        position.x += xMovement * speedMultiplier * Time.deltaTime;
 
         transform.position = position;
 
