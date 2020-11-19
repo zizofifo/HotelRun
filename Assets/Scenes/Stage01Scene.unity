@@ -189,7 +189,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 177541786481733877, guid: 9e7dcc8559bd5b745ab3675affe897c9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 137.30583
+      value: 145
       objectReference: {fileID: 0}
     - target: {fileID: 177541786481733877, guid: 9e7dcc8559bd5b745ab3675affe897c9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -234,6 +234,10 @@ PrefabInstance:
     - target: {fileID: 177541786481733877, guid: 9e7dcc8559bd5b745ab3675affe897c9, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 177541786481733877, guid: 9e7dcc8559bd5b745ab3675affe897c9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2685977201154253438, guid: 9e7dcc8559bd5b745ab3675affe897c9, type: 3}
       propertyPath: m_Name
@@ -1032,7 +1036,7 @@ MonoBehaviour:
   jumpHeight: 10
   isMotivated: 0
   inCrowd: 0
-  crossedIceMachine: 0
+  isStunned: 0
   isJumping: 0
   canJump: 1
 --- !u!54 &1155615226
