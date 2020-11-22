@@ -23,7 +23,7 @@ public class Movement : MonoBehaviour
     private bool isJumping = false;
     [SerializeField]
     private bool canJump = true;
-    private Rigidbody rb;
+    private Rigidbody2D rb;
     private Animator anim;
 
     void Awake()
@@ -39,7 +39,7 @@ public class Movement : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
 
@@ -62,24 +62,25 @@ public class Movement : MonoBehaviour
     void MovePlayer()
     {
         Vector2 position = transform.position;
+        Vector2 velocity = rb.velocity;
 
         float xMovement = Input.GetAxis("Horizontal");
         float yMovement = Input.GetAxis("Vertical");
         bool spacePressed = Input.GetKey(KeyCode.Space);
 
-        position.x += xMovement * speedMultiplier * Time.deltaTime;
+        velocity.x += xMovement * speedMultiplier * Time.deltaTime;
 
-        transform.position = position;
+        rb.velocity = velocity;
 
         if (spacePressed && !isJumping && canJump)
         {
             isJumping = true;
             canJump = false;
-            rb.AddForce(0, jumpHeight, 0, ForceMode.Impulse);
+            rb.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
         }
     }
 
-    void OnCollisionEnter(Collision other)
+    void OnCollisionEnter2D(Collision2D other)
     {
         Debug.Log("Player: Enter Collision with " + other.gameObject.tag);
 
@@ -95,7 +96,7 @@ public class Movement : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Player: Enter Trigger with " + other.gameObject.tag);
 
@@ -114,7 +115,7 @@ public class Movement : MonoBehaviour
         }
     }
 
-    void OnCollisionExit(Collision other)
+    void OnCollisionExit2D(Collision2D other)
     {
         Debug.Log("Player: Exit Collision with " + other.gameObject.tag);
 
@@ -125,7 +126,7 @@ public class Movement : MonoBehaviour
         */
     }
 
-    void OnTriggerExit(Collider other)
+    void OnTriggerExit2D(Collider2D other)
     {
         Debug.Log("Player: Exit Trigger with " + other.gameObject.tag);
 
