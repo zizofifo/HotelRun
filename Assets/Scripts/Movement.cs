@@ -107,6 +107,9 @@ public class Movement : MonoBehaviour
                     speedMultiplier /= 2;
                     inCrowd = true;
                     break;
+                case "Stairwell":
+                    canJump = false;
+                    break;
         }
     }
 
@@ -130,6 +133,9 @@ public class Movement : MonoBehaviour
                 case "Crowd":
                     speedMultiplier *= 2;
                     inCrowd = false;
+                    break;
+                case "Stairwell":
+                    canJump = true;
                     break;
         }
     }
