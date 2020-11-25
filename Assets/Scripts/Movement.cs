@@ -5,9 +5,6 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     static public Movement Player;
-    //static public GameObject playerCam;
-    // Start is called before the first frame update
-    public GameObject PlayerSprite;
     public bool isPlayerControlled = true;
     public float speedMultiplier = 5f;
     public float jumpHeight = 8f;
@@ -23,8 +20,20 @@ public class Movement : MonoBehaviour
     private bool isJumping = false;
     [SerializeField]
     private bool canJump = true;
-    private Rigidbody rb;
+    private Rigidbody _rb;
     private Animator anim;
+
+    public Rigidbody rb
+    {
+        get
+        {
+            return _rb;
+        }
+        set
+        {
+            _rb = value;
+        }
+    }
 
     void Awake()
     {
@@ -32,14 +41,14 @@ public class Movement : MonoBehaviour
         {
             Player = this;
         }
-        PlayerSprite.transform.position = transform.position;
-        //playerCam = PlayerSprite;
+        PlayerCam.POI = gameObject;
         startSpeed = speedMultiplier;
     }
 
+    // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
     }
 
@@ -54,7 +63,6 @@ public class Movement : MonoBehaviour
         if (isPlayerControlled)
         {
             MovePlayer();
-            PlayerCam.POI = PlayerSprite;
         }
 
     }
@@ -75,7 +83,7 @@ public class Movement : MonoBehaviour
         {
             isJumping = true;
             canJump = false;
-            rb.AddForce(0, jumpHeight, 0, ForceMode.Impulse);
+            _rb.AddForce(0, jumpHeight, 0, ForceMode.Impulse);
         }
     }
 
@@ -111,6 +119,9 @@ public class Movement : MonoBehaviour
                     speedMultiplier /= 2;
                     inCrowd = true;
                     break;
+                case "Stairwell":
+                    canJump = false;
+                    break;
         }
     }
 
@@ -134,6 +145,9 @@ public class Movement : MonoBehaviour
                 case "Crowd":
                     speedMultiplier *= 2;
                     inCrowd = false;
+                    break;
+                case "Stairwell":
+                    canJump = true;
                     break;
         }
     }

@@ -33,7 +33,7 @@ public class Teleporter : MonoBehaviour
 
         if (distance1 <= 3 || distance2 <= 3)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 DoTeleportation();
             }
@@ -55,5 +55,6 @@ public class Teleporter : MonoBehaviour
         }
 
         Movement.Player.transform.position = newfloorposition;
+        Movement.Player.rb.velocity = new Vector3(0,0,0);
     }
 }
