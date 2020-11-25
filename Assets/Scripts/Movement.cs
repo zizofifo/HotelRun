@@ -32,6 +32,7 @@ public class Movement : MonoBehaviour
         {
             Player = this;
         }
+        PlayerCam.POI = PlayerSprite;
         PlayerSprite.transform.position = transform.position;
         //playerCam = PlayerSprite;
         startSpeed = speedMultiplier;
@@ -54,7 +55,6 @@ public class Movement : MonoBehaviour
         if (isPlayerControlled)
         {
             MovePlayer();
-            PlayerCam.POI = PlayerSprite;
         }
 
     }

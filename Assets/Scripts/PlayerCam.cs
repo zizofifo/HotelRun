@@ -10,7 +10,7 @@ public class PlayerCam : MonoBehaviour
     public float camZ;
 
 
-    void Awake()
+    void Start()
     {
         camZ = this.transform.position.z;    
     }
