@@ -33,7 +33,7 @@ public class Teleporter : MonoBehaviour
 
         if (distance1 <= 3 || distance2 <= 3)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 DoTeleportation();
             }
