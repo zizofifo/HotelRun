@@ -55,5 +55,6 @@ public class Teleporter : MonoBehaviour
         }
 
         Movement.Player.transform.position = newfloorposition;
+        Movement.Player.rb.velocity = new Vector3(0,0,0);
     }
 }

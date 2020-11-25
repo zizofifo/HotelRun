@@ -20,8 +20,20 @@ public class Movement : MonoBehaviour
     private bool isJumping = false;
     [SerializeField]
     private bool canJump = true;
-    private Rigidbody rb;
+    private Rigidbody _rb;
     private Animator anim;
+
+    public Rigidbody rb
+    {
+        get
+        {
+            return _rb;
+        }
+        set
+        {
+            _rb = value;
+        }
+    }
 
     void Awake()
     {
@@ -36,7 +48,7 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
     }
 
@@ -71,7 +83,7 @@ public class Movement : MonoBehaviour
         {
             isJumping = true;
             canJump = false;
-            rb.AddForce(0, jumpHeight, 0, ForceMode.Impulse);
+            _rb.AddForce(0, jumpHeight, 0, ForceMode.Impulse);
         }
     }
 
