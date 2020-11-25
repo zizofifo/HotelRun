@@ -5,9 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     static public Movement Player;
-    //static public GameObject playerCam;
     // Start is called before the first frame update
-    public GameObject PlayerSprite;
     public bool isPlayerControlled = true;
     public float speedMultiplier = 5f;
     public float jumpHeight = 8f;
@@ -32,9 +30,7 @@ public class Movement : MonoBehaviour
         {
             Player = this;
         }
-        PlayerCam.POI = PlayerSprite;
-        PlayerSprite.transform.position = transform.position;
-        //playerCam = PlayerSprite;
+        PlayerCam.POI = gameObject;
         startSpeed = speedMultiplier;
     }
 
