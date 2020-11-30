@@ -8,8 +8,11 @@ public class Movement : MonoBehaviour
     public bool isPlayerControlled = true;
     public float speedMultiplier = 5f;
     public float jumpHeight = 8f;
+    public float speedCap = 15f;
+    public float reverseCap = -15f;
 
     [Header("Set dynamically")]
+    public Vector2 velocity;
     public bool isMotivated = false;
     public bool inCrowd = false;
     public bool isStunned = false;
@@ -23,7 +26,7 @@ public class Movement : MonoBehaviour
     private Rigidbody2D _rb;
     private Animator anim;
 
-    public Rigidbody rb
+    public Rigidbody2D rb
     {
         get
         {
@@ -70,15 +73,27 @@ public class Movement : MonoBehaviour
     void MovePlayer()
     {
         Vector2 position = transform.position;
-        Vector2 velocity = rb.velocity;
+        velocity = rb.velocity;
 
         float xMovement = Input.GetAxis("Horizontal");
         float yMovement = Input.GetAxis("Vertical");
         bool spacePressed = Input.GetKey(KeyCode.Space);
 
         velocity.x += xMovement * speedMultiplier * Time.deltaTime;
+        
+        if (velocity.x >= speedCap)
+        {
+            velocity.x = speedCap;
+        }
+
+        if (velocity.x <= reverseCap)
+        {
+            velocity.x = reverseCap;
+        }
 
         rb.velocity = velocity;
+
+      
 
         if (spacePressed && !isJumping && canJump)
         {
