@@ -1997,8 +1997,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e44f586cff09947b48c3013d6a2a15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: 15
-  jumpHeight: 20
+  speedMultiplier: 5
+  jumpHeight: 5
   isJumping: 0
   canJump: 1
   hitWall: 0
