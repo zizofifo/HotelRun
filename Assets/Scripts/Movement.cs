@@ -78,7 +78,9 @@ public class Movement : MonoBehaviour
         float yMovement = Input.GetAxis("Vertical");
         bool spacePressed = Input.GetKey(KeyCode.Space);
 
-        velocity.x += Mathf.Clamp(xMovement * speedMultiplier * Time.deltaTime, -speedCap, speedCap);
+        velocity.x += xMovement * speedMultiplier;
+
+        velocity.x = Mathf.Clamp(velocity.x, -speedCap, speedCap);
 
         if (isStunned)
         {
