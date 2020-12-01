@@ -9,7 +9,6 @@ public class Movement : MonoBehaviour
     public float speedMultiplier = 5f;
     public float jumpHeight = 8f;
     public float speedCap = 15f;
-    public float reverseCap = -15f;
 
     [Header("Set dynamically")]
     public Vector2 velocity;
@@ -79,17 +78,7 @@ public class Movement : MonoBehaviour
         float yMovement = Input.GetAxis("Vertical");
         bool spacePressed = Input.GetKey(KeyCode.Space);
 
-        velocity.x += xMovement * speedMultiplier * Time.deltaTime;
-        
-        if (velocity.x >= speedCap)
-        {
-            velocity.x = speedCap;
-        }
-
-        if (velocity.x <= reverseCap)
-        {
-            velocity.x = reverseCap;
-        }
+        velocity.x += Mathf.Clamp(xMovement * speedMultiplier * Time.deltaTime, -speedCap, speedCap);
 
         if (isStunned)
         {
