@@ -14,7 +14,7 @@ public class Teleporter : MonoBehaviour
     public float distance1;
     public float distance2;
 
-    private Vector2 mousePos;
+    //private Vector2 mousePos;
 
     //Update is called once per frame
     void Update()
