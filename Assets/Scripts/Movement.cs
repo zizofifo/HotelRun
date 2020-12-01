@@ -91,6 +91,11 @@ public class Movement : MonoBehaviour
             velocity.x = reverseCap;
         }
 
+        if (isStunned)
+        {
+            velocity = Vector2.zero;
+        }
+
         rb.velocity = velocity;
 
       
