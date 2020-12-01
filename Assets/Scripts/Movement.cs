@@ -78,9 +78,21 @@ public class Movement : MonoBehaviour
         float yMovement = Input.GetAxis("Vertical");
         bool spacePressed = Input.GetKey(KeyCode.Space);
 
-        velocity.x += xMovement * speedMultiplier;
+        velocity.x = xMovement * speedMultiplier;
 
         velocity.x = Mathf.Clamp(velocity.x, -speedCap, speedCap);
+
+        if (spacePressed && !isJumping && canJump)
+        {
+            isJumping = true;
+            canJump = false;
+            velocity.y = jumpHeight;
+        }
+
+        if (xMovement == 0 && !isJumping)
+        {
+            velocity = Vector2.Lerp(velocity, Vector2.zero, 0.01f);
+        }
 
         if (isStunned)
         {
@@ -88,15 +100,6 @@ public class Movement : MonoBehaviour
         }
 
         rb.velocity = velocity;
-
-      
-
-        if (spacePressed && !isJumping && canJump)
-        {
-            isJumping = true;
-            canJump = false;
-            _rb.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
-        }
     }
 
     void OnCollisionEnter2D(Collision2D other)
