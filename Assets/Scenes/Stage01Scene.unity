@@ -974,6 +974,10 @@ PrefabInstance:
       propertyPath: PlayerSprite
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1155615225, guid: aadfb0a1c3805524f805974fcb74d7c9, type: 3}
+      propertyPath: speedCap
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1620019929901659830, guid: aadfb0a1c3805524f805974fcb74d7c9, type: 3}
       propertyPath: m_Name
       value: PlayerSprite
