@@ -110,6 +110,7 @@ public class Movement : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "StoryFloor":
+            case "LuggageCart":
                 if (isJumping)
                 {
                     isJumping = false;
