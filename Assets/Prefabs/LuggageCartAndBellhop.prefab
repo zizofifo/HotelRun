@@ -946,7 +946,7 @@ GameObject:
   - component: {fileID: 8611628005112155911}
   - component: {fileID: 8850976055622905357}
   m_Layer: 12
-  m_Name: LuggageCart
+  m_Name: LuggageCartAndBellhop
   m_TagString: LuggageCart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
