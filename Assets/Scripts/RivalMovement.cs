@@ -17,11 +17,11 @@ public class RivalMovement : MonoBehaviour
     private bool hitWall = false;
     [SerializeField]
     private bool performJump = false;
-    private Rigidbody2D rb;
+    private Rigidbody rb;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -55,11 +55,11 @@ public class RivalMovement : MonoBehaviour
             performJump = false;
             isJumping = true;
             canJump = false;
-            rb.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
+            rb.AddForce(0, jumpHeight, 0, ForceMode.Impulse);
         }
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnCollisionEnter(Collision other)
     {
         Debug.Log("Rival collision");
 

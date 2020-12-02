@@ -17,7 +17,7 @@ public class Goal : MonoBehaviour
         
     }
 
-    void OnCollisionEnter2D(Collision2D obj)
+    void OnCollisionEnter(Collision obj)
     {
         switch (obj.gameObject.tag)
         {
