@@ -24,6 +24,7 @@ public class PingPongMovement : MonoBehaviour
     public float range = 1f;
 
     public float speed = 10f;
+
     // For debugging
     //public Vector2 insp0;
 
@@ -37,15 +38,7 @@ public class PingPongMovement : MonoBehaviour
     {
         startPosition = transform.position;
         rb = GetComponent<Rigidbody2D>();
-        switch (initialDirectionOfTravel)
-        {
-            case Direction.Left:
-                directionOfTravel = LEFT;
-                break;
-            case Direction.Right:
-                directionOfTravel = RIGHT;
-                break;
-        }
+        SetDirection(initialDirectionOfTravel);
     }
 
     // Update is called once per frame
