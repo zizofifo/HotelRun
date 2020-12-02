@@ -945,6 +945,7 @@ GameObject:
   - component: {fileID: 1995056609713310121}
   - component: {fileID: 8611628005112155911}
   - component: {fileID: 8850976055622905357}
+  - component: {fileID: 3926584656487687157}
   m_Layer: 12
   m_Name: LuggageCartAndBellhop
   m_TagString: LuggageCart
@@ -1453,3 +1454,19 @@ PolygonCollider2D:
       - {x: -3.5555367, y: -0.8624791}
       - {x: -3.6486146, y: -0.73448926}
       - {x: -3.7002907, y: -0.5702083}
+--- !u!114 &3926584656487687157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8551202732130149855}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdc5d3c9d266eb840b9b11f54a9fc1fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialDirectionOfTravel: 0
+  objectHorizontallyFlips: 1
+  range: 5
+  speed: 5
