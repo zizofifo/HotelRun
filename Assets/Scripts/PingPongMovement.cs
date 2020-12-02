@@ -67,22 +67,22 @@ public class PingPongMovement : MonoBehaviour
 
     private void SetDirection(Direction direction)
     {
-        float yRotation = transform.rotation.y;
+        Quaternion rotation = transform.rotation;
         switch (direction)
         {
             case Direction.Left:
                 this.directionOfTravel = LEFT;
-                yRotation = 0;
+                rotation.y = 0;
                 break;
             case Direction.Right:
                 this.directionOfTravel = RIGHT;
-                yRotation = -180;
+                rotation.y = -180;
                 break;
         }
 
         if (this.objectHorizontallyFlips)
         {
-            transform.rotation = Quaternion.Euler(0, yRotation, 0);
+            transform.rotation = rotation;
         }
     }
 }
