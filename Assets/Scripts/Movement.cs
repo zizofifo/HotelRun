@@ -8,8 +8,10 @@ public class Movement : MonoBehaviour
     public bool isPlayerControlled = true;
     public float speedMultiplier = 5f;
     public float jumpHeight = 8f;
+    public float speedCap = 15f;
 
     [Header("Set dynamically")]
+    public Vector2 velocity;
     public bool isMotivated = false;
     public bool inCrowd = false;
     public bool isStunned = false;
@@ -20,10 +22,10 @@ public class Movement : MonoBehaviour
     private bool isJumping = false;
     [SerializeField]
     private bool canJump = true;
-    private Rigidbody _rb;
+    private Rigidbody2D _rb;
     private Animator anim;
 
-    public Rigidbody rb
+    public Rigidbody2D rb
     {
         get
         {
@@ -48,7 +50,7 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
 
@@ -70,30 +72,44 @@ public class Movement : MonoBehaviour
     void MovePlayer()
     {
         Vector2 position = transform.position;
+        velocity = rb.velocity;
 
         float xMovement = Input.GetAxis("Horizontal");
         float yMovement = Input.GetAxis("Vertical");
         bool spacePressed = Input.GetKey(KeyCode.Space);
 
-        position.x += xMovement * speedMultiplier * Time.deltaTime;
+        velocity.x = xMovement * speedMultiplier;
 
-        transform.position = position;
+        velocity.x = Mathf.Clamp(velocity.x, -speedCap, speedCap);
 
         if (spacePressed && !isJumping && canJump)
         {
             isJumping = true;
             canJump = false;
-            _rb.AddForce(0, jumpHeight, 0, ForceMode.Impulse);
+            velocity.y = jumpHeight;
         }
+
+        if (xMovement == 0 && !isJumping)
+        {
+            velocity = Vector2.Lerp(velocity, Vector2.zero, 0.01f);
+        }
+
+        if (isStunned)
+        {
+            velocity = Vector2.zero;
+        }
+
+        rb.velocity = velocity;
     }
 
-    void OnCollisionEnter(Collision other)
+    void OnCollisionEnter2D(Collision2D other)
     {
         Debug.Log("Player: Enter Collision with " + other.gameObject.tag);
 
         switch (other.gameObject.tag)
         {
             case "StoryFloor":
+            case "LuggageCart":
                 if (isJumping)
                 {
                     isJumping = false;
@@ -103,7 +119,7 @@ public class Movement : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Player: Enter Trigger with " + other.gameObject.tag);
 
@@ -125,7 +141,7 @@ public class Movement : MonoBehaviour
         }
     }
 
-    void OnCollisionExit(Collision other)
+    void OnCollisionExit2D(Collision2D other)
     {
         Debug.Log("Player: Exit Collision with " + other.gameObject.tag);
 
@@ -136,7 +152,7 @@ public class Movement : MonoBehaviour
         */
     }
 
-    void OnTriggerExit(Collider other)
+    void OnTriggerExit2D(Collider2D other)
     {
         Debug.Log("Player: Exit Trigger with " + other.gameObject.tag);
 
