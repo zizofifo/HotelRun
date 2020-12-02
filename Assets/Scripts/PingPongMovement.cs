@@ -24,7 +24,6 @@ public class PingPongMovement : MonoBehaviour
     public float range = 1f;
 
     public float speed = 10f;
-
     // For debugging
     //public Vector2 insp0;
 
@@ -38,7 +37,15 @@ public class PingPongMovement : MonoBehaviour
     {
         startPosition = transform.position;
         rb = GetComponent<Rigidbody2D>();
-        SetDirection(initialDirectionOfTravel);
+        switch (initialDirectionOfTravel)
+        {
+            case Direction.Left:
+                directionOfTravel = LEFT;
+                break;
+            case Direction.Right:
+                directionOfTravel = RIGHT;
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -67,22 +74,22 @@ public class PingPongMovement : MonoBehaviour
 
     private void SetDirection(Direction direction)
     {
-        Quaternion rotation = transform.rotation;
+        float yRotation = transform.rotation.y;
         switch (direction)
         {
             case Direction.Left:
                 this.directionOfTravel = LEFT;
-                rotation.y = 0;
+                yRotation = 0;
                 break;
             case Direction.Right:
                 this.directionOfTravel = RIGHT;
-                rotation.y = -180;
+                yRotation = -180;
                 break;
         }
 
         if (this.objectHorizontallyFlips)
         {
-            transform.rotation = rotation;
+            transform.rotation = Quaternion.Euler(0, yRotation, 0);
         }
     }
 }
