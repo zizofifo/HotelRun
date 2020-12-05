@@ -15,6 +15,7 @@ public class Movement : MonoBehaviour
     public bool isMotivated = false;
     public bool inCrowd = false;
     public bool isStunned = false;
+    public bool canWarp = false;
 
     private float startSpeed;
 
@@ -136,7 +137,7 @@ public class Movement : MonoBehaviour
                     inCrowd = true;
                     break;
                 case "Stairwell":
-                    canJump = false;
+                    canWarp = true;
                     break;
         }
     }
@@ -163,7 +164,7 @@ public class Movement : MonoBehaviour
                     inCrowd = false;
                     break;
                 case "Stairwell":
-                    canJump = true;
+                    canWarp = false;
                     break;
         }
     }

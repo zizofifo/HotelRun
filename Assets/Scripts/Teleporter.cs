@@ -35,6 +35,11 @@ public class Teleporter : MonoBehaviour
 
         distance1 = Vector3.Distance(sight1pos, Movement.Player.transform.position);
         distance2 = Vector3.Distance(sight2pos, Movement.Player.transform.position);
+
+        if (Movement.Player.canWarp == true && Input.GetKeyDown(KeyCode.W))
+        {
+            Invoke("DoTeleportation", 2f);
+        }
         /*
         if (distance1 <= 5 || distance2 <= 5)
         {
@@ -47,39 +52,43 @@ public class Teleporter : MonoBehaviour
 
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    /*void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Stairwell: Enter collision with " + other.gameObject.tag);
+        Debug.Log("Stairwell: Enter trigger with " + other.gameObject.tag);
 
         switch(other.gameObject.tag)
         {
             case "Player":
-                if (Input.GetKeyDown(KeyCode.W))
-                {
-                    DoTeleportation();
-                }
+                Movement.Player.canWarp = true;
                 break;
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("Stairwell: Exit collision with " + other.gameObject.tag);
-    }
+        Debug.Log("Stairwell: Exit trigger with " + other.gameObject.tag);
+
+        switch (other.gameObject.tag)
+        {
+            case "Player":
+                Movement.Player.canWarp = false;
+                break;
+        }
+    }*/
 
     public void DoTeleportation()
     {
         Vector3 newfloorposition;
 
 
-        if (distance1 < distance2)
+        if (distance2 < distance1)
         {
-            newfloorposition = new Vector3(sight2.transform.position.x, sight2.transform.position.y, Movement.Player.transform.position.z);
+            newfloorposition = new Vector3(sight1.transform.position.x, sight1.transform.position.y, Movement.Player.transform.position.z);
         }
 
         else
         {
-            newfloorposition = new Vector3(sight1.transform.position.x, sight1.transform.position.y, Movement.Player.transform.position.z);
+            newfloorposition = new Vector3(sight2.transform.position.x, sight2.transform.position.y, Movement.Player.transform.position.z);
         }
 
         Movement.Player.transform.position = newfloorposition;
