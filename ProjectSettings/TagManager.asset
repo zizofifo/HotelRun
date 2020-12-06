@@ -18,6 +18,7 @@ TagManager:
   - Stairwell
   - Elevator
   - StoryCeiling
+  - CeilingLamp
   layers:
   - Default
   - TransparentFX

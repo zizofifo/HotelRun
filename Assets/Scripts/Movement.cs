@@ -15,6 +15,7 @@ public class Movement : MonoBehaviour
     public bool isMotivated = false;
     public bool inCrowd = false;
     public bool isStunned = false;
+    public bool isElectrocuted = false;
 
     private float startSpeed;
 
@@ -24,6 +25,8 @@ public class Movement : MonoBehaviour
     private bool canJump = true;
     private Rigidbody2D _rb;
     private Animator anim;
+    private Vector2? oldVelocity;
+    private RigidbodyConstraints2D? oldRigidbodyConstraints2D;
 
     public Rigidbody2D rb
     {
@@ -71,6 +74,11 @@ public class Movement : MonoBehaviour
 
     void MovePlayer()
     {
+        if (isElectrocuted)
+        {
+            return;
+        }
+
         Vector2 position = transform.position;
         velocity = rb.velocity;
 
@@ -137,6 +145,20 @@ public class Movement : MonoBehaviour
                     break;
                 case "Stairwell":
                     canJump = false;
+                    break;
+                case "CeilingLamp":
+                    CeilingLamp ceilingLamp;
+
+                    if (!other.gameObject.TryGetComponent<CeilingLamp>(out ceilingLamp))
+                    {
+                        return;
+                    }
+
+                    // Only electrocute if one jumps upward into it and if it isn't already broken.
+                    if (rb.velocity.y > 0 && ceilingLamp.justBroke)
+                    {
+                        Electrocute();
+                    }
                     break;
         }
     }
@@ -209,5 +231,34 @@ public class Movement : MonoBehaviour
         isStunned = false;
         anim.SetBool("hasSlipped", false);
         canJump = true;
+    }
+
+    void Electrocute()
+    {
+        isElectrocuted = true;
+
+        oldVelocity = rb.velocity;
+        rb.velocity = Vector2.zero;
+
+        oldRigidbodyConstraints2D = rb.constraints;
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+
+        anim.SetBool("hasBeenElectrocuted", true);
+        Invoke("UnElectrocute", 1.5f);
+    }
+
+    void UnElectrocute()
+    {
+        anim.SetBool("hasBeenElectrocuted", false);
+
+        rb.constraints = (RigidbodyConstraints2D) oldRigidbodyConstraints2D;
+        oldRigidbodyConstraints2D = null;
+
+        Vector2 restoredVelocity = (Vector2) oldVelocity;
+        restoredVelocity = new Vector2(restoredVelocity.x, -Mathf.Abs(restoredVelocity.y / 1.5f));
+        rb.velocity = restoredVelocity;
+        oldVelocity = null;
+
+        isElectrocuted = false;
     }
 }
