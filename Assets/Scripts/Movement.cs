@@ -80,7 +80,7 @@ public class Movement : MonoBehaviour
         }
 
         Vector2 position = transform.position;
-        velocity = rb.velocity;
+        velocity = _rb.velocity;
 
         float xMovement = Input.GetAxis("Horizontal");
         float yMovement = Input.GetAxis("Vertical");
@@ -107,7 +107,7 @@ public class Movement : MonoBehaviour
             velocity = Vector2.zero;
         }
 
-        rb.velocity = velocity;
+        _rb.velocity = velocity;
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -236,11 +236,11 @@ public class Movement : MonoBehaviour
     {
         isElectrocuted = true;
 
-        oldVelocity = rb.velocity;
-        rb.velocity = Vector2.zero;
+        oldVelocity = _rb.velocity;
+        _rb.velocity = Vector2.zero;
 
-        oldRigidbodyConstraints2D = rb.constraints;
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        oldRigidbodyConstraints2D = _rb.constraints;
+        _rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
         anim.SetBool("hasBeenElectrocuted", true);
         Invoke("UnElectrocute", 1.5f);
@@ -250,12 +250,12 @@ public class Movement : MonoBehaviour
     {
         anim.SetBool("hasBeenElectrocuted", false);
 
-        rb.constraints = (RigidbodyConstraints2D) oldRigidbodyConstraints2D;
+        _rb.constraints = (RigidbodyConstraints2D) oldRigidbodyConstraints2D;
         oldRigidbodyConstraints2D = null;
 
         Vector2 restoredVelocity = (Vector2) oldVelocity;
         restoredVelocity = new Vector2(restoredVelocity.x, -Mathf.Abs(restoredVelocity.y / 1.5f));
-        rb.velocity = restoredVelocity;
+        _rb.velocity = restoredVelocity;
         oldVelocity = null;
 
         isElectrocuted = false;
