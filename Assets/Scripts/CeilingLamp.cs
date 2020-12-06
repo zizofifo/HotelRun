@@ -8,7 +8,7 @@ public class CeilingLamp : MonoBehaviour
 {
     Animator anim;
     public bool isBroken = false;
-    public bool justBroke = false;
+    public bool hasJustBroken = false;
     public GameObject brokenBy;
     public bool isLit = true;
 
@@ -21,9 +21,9 @@ public class CeilingLamp : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (justBroke)
+        if (hasJustBroken)
         {
-            justBroke = false;
+            hasJustBroken = false;
         }
 
         if (isBroken)
@@ -41,7 +41,7 @@ public class CeilingLamp : MonoBehaviour
         if (otherRb.velocity.y > 0)
         {
             isBroken = true;
-            justBroke = true;
+            hasJustBroken = true;
             isLit = false;
             anim.SetBool("hasBeenHit", true);
         }
@@ -49,9 +49,9 @@ public class CeilingLamp : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (justBroke)
+        if (hasJustBroken)
         {
-            justBroke = false;
+            hasJustBroken = false;
         }
     }
 }

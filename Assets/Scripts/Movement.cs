@@ -154,8 +154,7 @@ public class Movement : MonoBehaviour
                         return;
                     }
 
-                    // Only electrocute if one jumps upward into it and if it isn't already broken.
-                    if (rb.velocity.y > 0 && ceilingLamp.justBroke)
+                    if (ceilingLamp.hasJustBroken)
                     {
                         Electrocute();
                     }
