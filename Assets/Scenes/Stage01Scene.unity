@@ -1319,6 +1319,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e7dcc8559bd5b745ab3675affe897c9, type: 3}
+--- !u!1 &201743886 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1620019929901659830, guid: aadfb0a1c3805524f805974fcb74d7c9, type: 3}
+  m_PrefabInstance: {fileID: 801707228}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &229390052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10774,6 +10779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 270f6b36939ed454ca8b7e6b57d11158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  POI: {fileID: 201743886}
   uitTimer: {fileID: 1741638622}
   camZ: 0
   timer: 0

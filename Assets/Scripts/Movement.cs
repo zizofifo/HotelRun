@@ -46,7 +46,6 @@ public class Movement : MonoBehaviour
         {
             Player = this;
         }
-        PlayerCam.POI = gameObject;
         startSpeed = speedMultiplier;
     }
 
