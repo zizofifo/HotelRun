@@ -11049,6 +11049,7 @@ MonoBehaviour:
   canJump: 1
   hitWall: 0
   performJump: 0
+  performAutoJump: 0
 --- !u!1001 &1903544671
 PrefabInstance:
   m_ObjectHideFlags: 0
