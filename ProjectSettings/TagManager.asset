@@ -17,6 +17,7 @@ TagManager:
   - DoorToRoom
   - Stairwell
   - Elevator
+  - StoryCeiling
   layers:
   - Default
   - TransparentFX
