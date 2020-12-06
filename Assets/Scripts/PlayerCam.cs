@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Camera))]
 public class PlayerCam : MonoBehaviour
 {
     [Header("Set in inspector")]
