@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Camera))]
 public class PlayerCam : MonoBehaviour
 {
-    static public GameObject POI;
-
     [Header("Set in inspector")]
+    public GameObject POI;
     public Text uitTimer; //Timer text
 
     [Header("Set dynamically")]
@@ -19,10 +19,10 @@ public class PlayerCam : MonoBehaviour
 
     void Start()
     {
-        camZ = this.transform.position.z;    
+        camZ = this.transform.position.z;
     }
 
-    
+
     void FixedUpdate()
     {
         if (POI == null) return;

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
 public class Movement : MonoBehaviour
 {
     static public Movement Player;
@@ -15,7 +17,11 @@ public class Movement : MonoBehaviour
     public bool isMotivated = false;
     public bool inCrowd = false;
     public bool isStunned = false;
+
     public bool canWarp = false;
+
+    public bool isElectrocuted = false;
+
 
     private float startSpeed;
 
@@ -25,6 +31,8 @@ public class Movement : MonoBehaviour
     private bool canJump = true;
     private Rigidbody2D _rb;
     private Animator anim;
+    private Vector2? oldVelocity;
+    private RigidbodyConstraints2D? oldRigidbodyConstraints2D;
 
     public Rigidbody2D rb
     {
@@ -44,7 +52,6 @@ public class Movement : MonoBehaviour
         {
             Player = this;
         }
-        PlayerCam.POI = gameObject;
         startSpeed = speedMultiplier;
     }
 
@@ -72,8 +79,13 @@ public class Movement : MonoBehaviour
 
     void MovePlayer()
     {
+        if (isElectrocuted)
+        {
+            return;
+        }
+
         Vector2 position = transform.position;
-        velocity = rb.velocity;
+        velocity = _rb.velocity;
 
         float xMovement = Input.GetAxis("Horizontal");
         float yMovement = Input.GetAxis("Vertical");
@@ -100,7 +112,7 @@ public class Movement : MonoBehaviour
             velocity = Vector2.zero;
         }
 
-        rb.velocity = velocity;
+        _rb.velocity = velocity;
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -126,19 +138,34 @@ public class Movement : MonoBehaviour
 
         switch (other.gameObject.tag)
         {
-                case "IceMachine":
-                    if (isMotivated)
-                    {
-                        Stun();
-                    }
-                    break;
-                case "Crowd":
-                    speedMultiplier /= 2;
-                    inCrowd = true;
-                    break;
-                case "Stairwell":
-                    canWarp = true;
-                    break;
+
+            case "IceMachine":
+                if (isMotivated)
+                {
+                    Stun();
+                }
+                break;
+            case "Crowd":
+                speedMultiplier /= 2;
+                inCrowd = true;
+                break;
+            case "Stairwell":
+                canWarp = true;
+                break;
+            case "CeilingLamp":
+                CeilingLamp ceilingLamp;
+
+                if (!other.gameObject.TryGetComponent<CeilingLamp>(out ceilingLamp))
+                {
+                    return;
+                }
+
+                if (ceilingLamp.hasJustBroken)
+                {
+                    Electrocute();
+                }
+                break;
+
         }
     }
 
@@ -159,13 +186,15 @@ public class Movement : MonoBehaviour
 
         switch (other.gameObject.tag)
         {
-                case "Crowd":
-                    speedMultiplier *= 2;
-                    inCrowd = false;
-                    break;
-                case "Stairwell":
-                    canWarp = false;
-                    break;
+
+            case "Crowd":
+                speedMultiplier *= 2;
+                inCrowd = false;
+                break;
+            case "Stairwell":
+                canWarp = false;
+                break;
+
         }
     }
 
@@ -210,5 +239,34 @@ public class Movement : MonoBehaviour
         isStunned = false;
         anim.SetBool("hasSlipped", false);
         canJump = true;
+    }
+
+    void Electrocute()
+    {
+        isElectrocuted = true;
+
+        oldVelocity = _rb.velocity;
+        _rb.velocity = Vector2.zero;
+
+        oldRigidbodyConstraints2D = _rb.constraints;
+        _rb.constraints = RigidbodyConstraints2D.FreezeAll;
+
+        anim.SetBool("hasBeenElectrocuted", true);
+        Invoke("UnElectrocute", 1.5f);
+    }
+
+    void UnElectrocute()
+    {
+        anim.SetBool("hasBeenElectrocuted", false);
+
+        _rb.constraints = (RigidbodyConstraints2D)oldRigidbodyConstraints2D;
+        oldRigidbodyConstraints2D = null;
+
+        Vector2 restoredVelocity = (Vector2)oldVelocity;
+        restoredVelocity = new Vector2(restoredVelocity.x, -Mathf.Abs(restoredVelocity.y / 1.5f));
+        _rb.velocity = restoredVelocity;
+        oldVelocity = null;
+
+        isElectrocuted = false;
     }
 }

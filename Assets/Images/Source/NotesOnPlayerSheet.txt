@@ -1,0 +1,5 @@
+Electrocution:
+    In GIMP 2.10.22:
+    "Filters> Distort > Shift" done twice: horizontal, then vertical, using the same shift amount and seed
+    The (Horizontal Shift, Vertical Shift, Random Seed) applied to each respective frame, from left to right:
+        (4, 4, 0), (6, 6, 2), (2, 2, 4), (3, 3, 8)
