@@ -134,32 +134,32 @@ public class Movement : MonoBehaviour
 
         switch (other.gameObject.tag)
         {
-                case "IceMachine":
-                    if (isMotivated)
-                    {
-                        Stun();
-                    }
-                    break;
-                case "Crowd":
-                    speedMultiplier /= 2;
-                    inCrowd = true;
-                    break;
-                case "Stairwell":
-                    canJump = false;
-                    break;
-                case "CeilingLamp":
-                    CeilingLamp ceilingLamp;
+            case "IceMachine":
+                if (isMotivated)
+                {
+                    Stun();
+                }
+                break;
+            case "Crowd":
+                speedMultiplier /= 2;
+                inCrowd = true;
+                break;
+            case "Stairwell":
+                canJump = false;
+                break;
+            case "CeilingLamp":
+                CeilingLamp ceilingLamp;
 
-                    if (!other.gameObject.TryGetComponent<CeilingLamp>(out ceilingLamp))
-                    {
-                        return;
-                    }
+                if (!other.gameObject.TryGetComponent<CeilingLamp>(out ceilingLamp))
+                {
+                    return;
+                }
 
-                    if (ceilingLamp.hasJustBroken)
-                    {
-                        Electrocute();
-                    }
-                    break;
+                if (ceilingLamp.hasJustBroken)
+                {
+                    Electrocute();
+                }
+                break;
         }
     }
 
@@ -180,13 +180,13 @@ public class Movement : MonoBehaviour
 
         switch (other.gameObject.tag)
         {
-                case "Crowd":
-                    speedMultiplier *= 2;
-                    inCrowd = false;
-                    break;
-                case "Stairwell":
-                    canJump = true;
-                    break;
+            case "Crowd":
+                speedMultiplier *= 2;
+                inCrowd = false;
+                break;
+            case "Stairwell":
+                canJump = true;
+                break;
         }
     }
 
@@ -251,10 +251,10 @@ public class Movement : MonoBehaviour
     {
         anim.SetBool("hasBeenElectrocuted", false);
 
-        _rb.constraints = (RigidbodyConstraints2D) oldRigidbodyConstraints2D;
+        _rb.constraints = (RigidbodyConstraints2D)oldRigidbodyConstraints2D;
         oldRigidbodyConstraints2D = null;
 
-        Vector2 restoredVelocity = (Vector2) oldVelocity;
+        Vector2 restoredVelocity = (Vector2)oldVelocity;
         restoredVelocity = new Vector2(restoredVelocity.x, -Mathf.Abs(restoredVelocity.y / 1.5f));
         _rb.velocity = restoredVelocity;
         oldVelocity = null;

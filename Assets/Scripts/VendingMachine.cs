@@ -8,7 +8,7 @@ public class VendingMachine : MonoBehaviour
 
     //[Header("Set dynamically")]
     //public bool inProximity = false;
-    
+
     void Awake()
     {
 

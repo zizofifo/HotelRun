@@ -7,7 +7,7 @@ public class ChangeSceneButton : MonoBehaviour
 {
     [SerializeField]
     public string targetSceneName;
-    
+
     public void OnClicked()
     {
         // Catch possible Null Exception or let Unity move on?

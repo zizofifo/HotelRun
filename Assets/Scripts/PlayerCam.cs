@@ -22,7 +22,7 @@ public class PlayerCam : MonoBehaviour
         camZ = this.transform.position.z;
     }
 
-    
+
     void FixedUpdate()
     {
         if (POI == null) return;

@@ -9,7 +9,6 @@ public class RivalMovement : MonoBehaviour
     public float speedMultiplier = 5f;
     public float jumpHeight = 20f;
 
-
     [Header("Internal State")]
     [SerializeField]
     private bool isJumping = false;
@@ -38,7 +37,7 @@ public class RivalMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-            MovePlayer();
+        MovePlayer();
     }
 
     void MovePlayer()
@@ -51,7 +50,6 @@ public class RivalMovement : MonoBehaviour
         Vector2 position = transform.position;
 
         float xMovement = 0.5f;
-
 
         position.x += xMovement * speedMultiplier * Time.deltaTime;
         transform.position = position;
@@ -84,7 +82,6 @@ public class RivalMovement : MonoBehaviour
                 canJump = false;
                 break;
 
-
             case "Stairwell":
                 break;
             case "Elevator":
@@ -111,7 +108,6 @@ public class RivalMovement : MonoBehaviour
     {
         Debug.Log("Rival: Exit Collision with " + other.gameObject.tag);
     }
-
 
     void OnTriggerEnter2D(Collider2D other)
     {

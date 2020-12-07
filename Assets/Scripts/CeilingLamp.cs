@@ -18,7 +18,6 @@ public class CeilingLamp : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    
     void OnTriggerEnter2D(Collider2D other)
     {
         if (hasJustBroken)
