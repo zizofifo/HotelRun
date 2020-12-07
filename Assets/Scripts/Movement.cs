@@ -163,6 +163,11 @@ public class Movement : MonoBehaviour
         }
     }
 
+    void OnTriggerStay2D(Collider2D other)
+    {
+        Debug.Log("Player: Stay Trigger with " + other.gameObject.tag);
+    }
+
     void OnCollisionExit2D(Collision2D other)
     {
         Debug.Log("Player: Exit Collision with " + other.gameObject.tag);
