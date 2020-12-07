@@ -160,7 +160,7 @@ public class Movement : MonoBehaviour
                     return;
                 }
 
-                if (ceilingLamp.hasJustBroken)
+                if (ceilingLamp.isBroken)
                 {
                     Electrocute();
                 }
