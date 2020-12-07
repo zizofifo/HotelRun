@@ -9,8 +9,8 @@ public class Teleporter : MonoBehaviour
     public GameObject sight1;
     public GameObject sight2;
 
-    Vector3 sight1pos;
-    Vector3 sight2pos;
+    public Vector3 sight1pos;
+    public Vector3 sight2pos;
 
     [Header("Set Dynamically")]
     public float distance1;
@@ -36,18 +36,19 @@ public class Teleporter : MonoBehaviour
         distance1 = Vector3.Distance(sight1pos, Movement.Player.transform.position);
         distance2 = Vector3.Distance(sight2pos, Movement.Player.transform.position);
 
-        if (Movement.Player.canWarp == true && Input.GetKeyDown(KeyCode.W))
+        /*if (Movement.Player.canWarp == true && Input.GetKeyDown(KeyCode.W))
         {
             Invoke("DoTeleportation", 2f);
-        }
-        /*
+        }*/
+        
         if (distance1 <= 5 || distance2 <= 5)
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
-                DoTeleportation();
+                Movement.Player.canWarp = true;
+                Invoke("DoTeleportation", 2f);
             }
-        }*/
+        }
 
 
     }
@@ -91,6 +92,7 @@ public class Teleporter : MonoBehaviour
             newfloorposition = new Vector3(sight2.transform.position.x, sight2.transform.position.y, Movement.Player.transform.position.z);
         }
 
+        Movement.Player.canWarp = false;
         Movement.Player.transform.position = newfloorposition;
         Movement.Player.rb.velocity = new Vector3(0,0,0);
     }
