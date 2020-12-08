@@ -51,7 +51,7 @@ public class PlayerCam : MonoBehaviour
 
         tmpSodas.text = "Sodas: " + string.Format("{0:#0}", player.sodaCans);
 
-        sodaKeyCap.SetEnableAppearance(!player.isMotivated);
+        sodaKeyCap.SetEnableAppearance(!player.isMotivated && player.sodaCans > 0);
 
         uitTimer.text = "Time: "+timerText;
     }
