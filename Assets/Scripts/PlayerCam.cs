@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,7 @@ public class PlayerCam : MonoBehaviour
 {
     [Header("Set in inspector")]
     public GameObject POI;
-    public Text uitTimer; //Timer text
+    public TextMeshProUGUI uitTimer; //Timer text
 
     [Header("Set dynamically")]
     public float camZ;
