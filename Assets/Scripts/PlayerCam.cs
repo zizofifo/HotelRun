@@ -52,10 +52,14 @@ public class PlayerCam : MonoBehaviour
         string timerText = string.Format("{0:0}:{1:00}", minutes, seconds);
 
         tmpSodas.text = "Sodas:   " + string.Format("{0:#0}", player.sodaCans);
-        sodaKeyCap.SetEnableAppearance(!player.isMotivated && player.sodaCans > 0);
 
-        tmpTowels.text = "Towels:  " + string.Format("{0:#0}", player.towels);
-        towelsKeyCap.SetEnableAppearance(!player.isUsingTowel && player.towels > 0);
+        sodaKeyCap.SetAppearance(player.isMotivated ?
+            Keycap.KeycapAppearance.PleaseWait :
+            !player.isMotivated && player.sodaCans > 0 ? Keycap.KeycapAppearance.Enabled : Keycap.KeycapAppearance.Disabled);
+
+        towelsKeyCap.SetAppearance(player.isUsingTowel ?
+            Keycap.KeycapAppearance.PleaseWait :
+            !player.isUsingTowel && player.towels > 0 ? Keycap.KeycapAppearance.Enabled : Keycap.KeycapAppearance.Disabled);
 
         uitTimer.text = "Time: "+timerText;
     }

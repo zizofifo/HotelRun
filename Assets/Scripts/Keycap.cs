@@ -7,8 +7,15 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Animator))]
 public class Keycap : MonoBehaviour
 {
+    public enum KeycapAppearance
+    {
+        Enabled,
+        Disabled,
+        PleaseWait,
+    };
+
     public char keycapLetter;
-    public bool enabledAppearance = true;
+    public KeycapAppearance appearance = KeycapAppearance.Enabled;
 
     private TextMeshProUGUI keycapTMP;
     private Animator anim;
@@ -19,14 +26,7 @@ public class Keycap : MonoBehaviour
         anim = GetComponent<Animator>();
         keycapTMP = transform.Find("KeycapPrint").GetComponent<TextMeshProUGUI>();
         keycapTMP.text = keycapLetter.ToString();
-        if (enabledAppearance)
-        {
-            SetEnableAppearance(true);
-        }
-        else
-        {
-            SetEnableAppearance(false);
-        }
+        SetAppearance(appearance);
     }
 
     // Update is called once per frame
@@ -35,18 +35,25 @@ public class Keycap : MonoBehaviour
 
     }
 
-
-    public void SetEnableAppearance(bool enableKeycap)
+    public void SetAppearance(KeycapAppearance appearance)
     {
-        if (enableKeycap)
+        switch (appearance)
         {
-            enabledAppearance = true;
-            anim.SetBool("isEnabled", true);
-        }
-        else
-        {
-            enabledAppearance = false;
-            anim.SetBool("isEnabled", false);
+            case KeycapAppearance.Enabled:
+                this.appearance = KeycapAppearance.Enabled;
+                anim.SetBool("isEnabled", true);
+                anim.SetBool("isWaiting", false);
+                break;
+            case KeycapAppearance.Disabled:
+                this.appearance = KeycapAppearance.Disabled;
+                anim.SetBool("isEnabled", false);
+                anim.SetBool("isWaiting", false);
+                break;
+            case KeycapAppearance.PleaseWait:
+                this.appearance = KeycapAppearance.PleaseWait;
+                anim.SetBool("isEnabled", false);
+                anim.SetBool("isWaiting", true);
+                break;
         }
     }
 }
