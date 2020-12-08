@@ -22,6 +22,8 @@ public class Movement : MonoBehaviour
 
     public bool isElectrocuted = false;
 
+    public int sodaCans;
+
 
     private float startSpeed;
 
@@ -90,6 +92,12 @@ public class Movement : MonoBehaviour
         float xMovement = Input.GetAxis("Horizontal");
         float yMovement = Input.GetAxis("Vertical");
         bool spacePressed = Input.GetKey(KeyCode.Space);
+        bool qPressed = Input.GetKey(KeyCode.Q);
+
+        if (qPressed)
+        {
+            PowerUp();
+        }
 
         velocity.x = xMovement * speedMultiplier;
 
@@ -165,7 +173,9 @@ public class Movement : MonoBehaviour
                     Electrocute();
                 }
                 break;
-
+            case "VendingMachine":
+                ++sodaCans;
+                break;
         }
     }
 
@@ -200,12 +210,16 @@ public class Movement : MonoBehaviour
 
     public void PowerUp()
     {
-        if (!isMotivated)
+        if (isMotivated)
         {
-            isMotivated = true;
-            speedMultiplier = speedMultiplier * 2;
-            Invoke("PowerDown", 5f);
+            return;
         }
+
+        --sodaCans;
+
+        isMotivated = true;
+        speedMultiplier = speedMultiplier * 2;
+        Invoke("PowerDown", 5f);
     }
 
     public void PowerDown()

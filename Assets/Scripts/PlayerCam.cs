@@ -9,7 +9,10 @@ public class PlayerCam : MonoBehaviour
 {
     [Header("Set in inspector")]
     public GameObject POI;
+    public Movement player;
     public TextMeshProUGUI uitTimer; //Timer text
+    public TextMeshProUGUI tmpSodas;
+    public Keycap sodaKeyCap;
 
     [Header("Set dynamically")]
     public float camZ;
@@ -45,6 +48,10 @@ public class PlayerCam : MonoBehaviour
     void UpdateGUI()
     {
         string timerText = string.Format("{0:0}:{1:00}", minutes, seconds);
+
+        tmpSodas.text = "Sodas: " + string.Format("{0:#0}", player.sodaCans);
+
+        sodaKeyCap.SetEnableAppearance(!player.isMotivated);
 
         uitTimer.text = "Time: "+timerText;
     }
