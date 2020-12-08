@@ -9,11 +9,18 @@ public class VendingMachine : MonoBehaviour
     //[Header("Set dynamically")]
     //public bool inProximity = false;
 
+    public int cansInitiallyInStock = 1;
+
+    [SerializeField]
+    private int cansInStock;
+
     /*
     void Awake()
     {
 
     }
+
+    if
 
     // Update is called once per frame
     void Update()
@@ -27,4 +34,14 @@ public class VendingMachine : MonoBehaviour
         }
     }
     */
+
+    void Start()
+    {
+        cansInStock = cansInitiallyInStock;
+    }
+
+    public int Vend()
+    {
+        return (--cansInStock >= 0) ? 1 : 0;
+    }
 }

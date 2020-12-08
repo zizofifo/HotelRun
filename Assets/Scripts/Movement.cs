@@ -174,7 +174,14 @@ public class Movement : MonoBehaviour
                 }
                 break;
             case "VendingMachine":
-                ++sodaCans;
+                VendingMachine vendingMachine;
+
+                if (!other.gameObject.TryGetComponent<VendingMachine>(out vendingMachine))
+                {
+                    return;
+                }
+
+                sodaCans += vendingMachine.Vend();
                 break;
         }
     }
