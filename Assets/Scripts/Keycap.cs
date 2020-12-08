@@ -4,24 +4,20 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Image))]
+[RequireComponent(typeof(Animator))]
 public class Keycap : MonoBehaviour
 {
-
-    public TextMeshProUGUI keycapTMP;
     public char keycapLetter;
     public bool enabledAppearance = true;
 
-    private Image image;
-
-    public GameObject KEYCAP_DISABLESTROKE_GAMEOBJECT;
-    public Sprite KEYCAP_ENABLED_SPRITE;
-    public Sprite KEYCAP_DISABLED_SPRITE;
+    private TextMeshProUGUI keycapTMP;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
-        image = GetComponent<Image>();
+        anim = GetComponent<Animator>();
+        keycapTMP = transform.Find("KeycapPrint").GetComponent<TextMeshProUGUI>();
         keycapTMP.text = keycapLetter.ToString();
         if (enabledAppearance)
         {
@@ -40,19 +36,17 @@ public class Keycap : MonoBehaviour
     }
 
 
-    public void SetEnableAppearance(bool state)
+    public void SetEnableAppearance(bool enableKeycap)
     {
-        if (state)
+        if (enableKeycap)
         {
             enabledAppearance = true;
-            KEYCAP_DISABLESTROKE_GAMEOBJECT.SetActive(false);
-            image.overrideSprite = KEYCAP_ENABLED_SPRITE;
+            anim.SetBool("isEnabled", true);
         }
         else
         {
             enabledAppearance = false;
-            KEYCAP_DISABLESTROKE_GAMEOBJECT.SetActive(true);
-            image.overrideSprite = KEYCAP_DISABLED_SPRITE;
+            anim.SetBool("isEnabled", false);
         }
     }
 }

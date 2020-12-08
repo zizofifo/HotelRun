@@ -13,6 +13,8 @@ public class PlayerCam : MonoBehaviour
     public TextMeshProUGUI uitTimer; //Timer text
     public TextMeshProUGUI tmpSodas;
     public Keycap sodaKeyCap;
+    public TextMeshProUGUI tmpTowels;
+    public Keycap towelsKeyCap;
 
     [Header("Set dynamically")]
     public float camZ;
@@ -49,9 +51,11 @@ public class PlayerCam : MonoBehaviour
     {
         string timerText = string.Format("{0:0}:{1:00}", minutes, seconds);
 
-        tmpSodas.text = "Sodas: " + string.Format("{0:#0}", player.sodaCans);
+        tmpSodas.text = "Sodas:   " + string.Format("{0:#0}", player.sodaCans);
+        sodaKeyCap.SetEnableAppearance(!player.isMotivated && player.sodaCans > 0);
 
-        sodaKeyCap.SetEnableAppearance(!player.isMotivated);
+        tmpTowels.text = "Towels:  " + string.Format("{0:#0}", player.towels);
+        towelsKeyCap.SetEnableAppearance(!player.isUsingTowel && player.towels > 0);
 
         uitTimer.text = "Time: "+timerText;
     }

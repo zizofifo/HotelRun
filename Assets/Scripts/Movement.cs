@@ -21,8 +21,10 @@ public class Movement : MonoBehaviour
     public bool canWarp = false;
 
     public bool isElectrocuted = false;
+    public bool isUsingTowel = false;
 
     public int sodaCans;
+    public int towels;
 
 
     private float startSpeed;
@@ -93,10 +95,16 @@ public class Movement : MonoBehaviour
         float yMovement = Input.GetAxis("Vertical");
         bool spacePressed = Input.GetKey(KeyCode.Space);
         bool qPressed = Input.GetKey(KeyCode.Q);
+        bool ePressed = Input.GetKey(KeyCode.E);
 
         if (qPressed)
         {
             PowerUp();
+        }
+
+        if (ePressed)
+        {
+            TowelUp();
         }
 
         velocity.x = xMovement * speedMultiplier;
@@ -174,7 +182,24 @@ public class Movement : MonoBehaviour
                 }
                 break;
             case "VendingMachine":
-                ++sodaCans;
+                VendingMachine vendingMachine;
+
+                if (!other.gameObject.TryGetComponent<VendingMachine>(out vendingMachine))
+                {
+                    return;
+                }
+
+                sodaCans += vendingMachine.Vend();
+                break;
+            case "RolledTowel":
+                RolledTowel towel;
+
+                if (!other.gameObject.TryGetComponent<RolledTowel>(out towel))
+                {
+                    return;
+                }
+
+                towels += towel.PickUp();
                 break;
         }
     }
@@ -210,7 +235,7 @@ public class Movement : MonoBehaviour
 
     public void PowerUp()
     {
-        if (isMotivated)
+        if (isMotivated || sodaCans <= 0 || isUsingTowel)
         {
             return;
         }
@@ -237,6 +262,12 @@ public class Movement : MonoBehaviour
         {
             return;
         }
+
+        if (isUsingTowel)
+        {
+            return;
+        }
+
         float noSpeed = 0;
 
         isStunned = true;
@@ -282,5 +313,22 @@ public class Movement : MonoBehaviour
         oldVelocity = null;
 
         isElectrocuted = false;
+    }
+
+    void TowelUp()
+    {
+        if (isUsingTowel || towels <= 0)
+        {
+            return;
+        }
+
+        isUsingTowel = true;
+        --towels;
+        Invoke("UnTowelUp", 3f);
+    }
+
+    void UnTowelUp()
+    {
+        isUsingTowel = false;
     }
 }
