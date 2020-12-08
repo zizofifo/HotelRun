@@ -25,31 +25,34 @@ public class Keycap : MonoBehaviour
         keycapTMP.text = keycapLetter.ToString();
         if (enabledAppearance)
         {
-            Enable();
+            SetEnableAppearance(true);
         }
         else
         {
-            Disable();
+            SetEnableAppearance(false);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void Disable()
-    {
-        enabledAppearance = false;
-        KEYCAP_DISABLESTROKE_GAMEOBJECT.SetActive(true);
-        image.overrideSprite = KEYCAP_DISABLED_SPRITE;
-    }
 
-    public void Enable()
+    public void SetEnableAppearance(bool state)
     {
-        enabledAppearance = true;
-        KEYCAP_DISABLESTROKE_GAMEOBJECT.SetActive(false);
-        image.overrideSprite = KEYCAP_ENABLED_SPRITE;
+        if (state)
+        {
+            enabledAppearance = true;
+            KEYCAP_DISABLESTROKE_GAMEOBJECT.SetActive(false);
+            image.overrideSprite = KEYCAP_ENABLED_SPRITE;
+        }
+        else
+        {
+            enabledAppearance = false;
+            KEYCAP_DISABLESTROKE_GAMEOBJECT.SetActive(true);
+            image.overrideSprite = KEYCAP_DISABLED_SPRITE;
+        }
     }
 }
