@@ -54,11 +54,6 @@ public class DoorObstacle : MonoBehaviour
             SetState(DoorObstacleState.Opened);
             timeRemainingOpened = Random.Range(minimumTimeAllowedOpened, maximumTimeAllowedOpened);
         }
-
-        if (prevState != state)
-        {
-
-        }
     }
 
     private void SetState(DoorObstacleState nextState)

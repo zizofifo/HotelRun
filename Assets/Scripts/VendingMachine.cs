@@ -9,6 +9,7 @@ public class VendingMachine : MonoBehaviour
     //[Header("Set dynamically")]
     //public bool inProximity = false;
 
+    /*
     void Awake()
     {
 
@@ -25,4 +26,5 @@ public class VendingMachine : MonoBehaviour
             Movement.Player.PowerUp();
         }
     }
+    */
 }
