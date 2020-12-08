@@ -210,7 +210,7 @@ public class Movement : MonoBehaviour
 
     public void PowerUp()
     {
-        if (isMotivated)
+        if (isMotivated || sodaCans <= 0)
         {
             return;
         }
