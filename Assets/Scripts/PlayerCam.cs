@@ -9,10 +9,12 @@ public class PlayerCam : MonoBehaviour
 
     [Header("Set in inspector")]
     public Text uitTimer; //Timer text
+    public Text uitWorldRecord; //Best time recorded
 
     [Header("Set dynamically")]
     public float camZ;
     public float timer = 0.0f;
+    public float worldRecord = 1000.0f;
     public int seconds;
     public int minutes;
 
@@ -46,5 +48,9 @@ public class PlayerCam : MonoBehaviour
         string timerText = string.Format("{0:0}:{1:00}", minutes, seconds);
 
         uitTimer.text = "Time: "+timerText;
+
+        string recordText = string.Format("{0:0}:{1:00}", minutes, seconds);
+
+        uitWorldRecord.text = "Time: "+recordText;
     }
 }
