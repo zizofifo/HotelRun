@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Stage01Scene.unity
     guid: 276e65deed1d3c647afbf70dd2a2d43d
   - enabled: 1
+    path: Assets/Scenes/Stage02Scene.unity
+    guid: 759032824aec169458f4519fa4ef5888
+  - enabled: 1
+    path: Assets/Scenes/Stage03Scene.unity
+    guid: 14935314d1d2ec242b4908eaa92f59af
+  - enabled: 1
     path: Assets/Scenes/HotelRunScene.unity
     guid: 7f249145a0097944b958df619dd97840
   - enabled: 1
