@@ -16,6 +16,11 @@ public class Teleporter : MonoBehaviour
     public float distance1;
     public float distance2;
 
+    public float rivalDistance1;
+    public float rivalDistance2;
+
+    public HorizontalDirection rivalDirectionAtDestination2 = HorizontalDirection.Left;
+
     //private Vector2 mousePos;
 
     void Awake()
@@ -36,6 +41,9 @@ public class Teleporter : MonoBehaviour
         distance1 = Vector3.Distance(sight1pos, Movement.Player.transform.position);
         distance2 = Vector3.Distance(sight2pos, Movement.Player.transform.position);
 
+        rivalDistance1 = Vector3.Distance(sight1pos, RivalMovement.Rival.transform.position);
+        rivalDistance2 = Vector3.Distance(sight2pos, RivalMovement.Rival.transform.position);
+
         /*if (Movement.Player.canWarp == true && Input.GetKeyDown(KeyCode.W))
         {
             Invoke("DoTeleportation", 2f);
@@ -50,6 +58,10 @@ public class Teleporter : MonoBehaviour
             }
         }
 
+        if (rivalDistance1 <= 5)
+        {
+            Invoke("DoTeleportationRival", 2f);
+        }
 
     }
 
@@ -95,5 +107,15 @@ public class Teleporter : MonoBehaviour
         Movement.Player.canWarp = false;
         Movement.Player.transform.position = newfloorposition;
         Movement.Player.rb.velocity = new Vector3(0,0,0);
+    }
+
+    public void DoTeleportationRival()
+    {
+        Vector3 newfloorposition;
+
+        newfloorposition = new Vector3(sight2.transform.position.x, sight2.transform.position.y, RivalMovement.Rival.transform.position.z);
+
+        RivalMovement.Rival.transform.position = newfloorposition;
+        RivalMovement.Rival.currentDirection = rivalDirectionAtDestination2;
     }
 }
