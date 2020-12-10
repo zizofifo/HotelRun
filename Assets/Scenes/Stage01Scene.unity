@@ -3928,6 +3928,9 @@ MonoBehaviour:
   sight2pos: {x: 0, y: 0, z: 0}
   distance1: 0
   distance2: 0
+  rivalDistance1: 0
+  rivalDistance2: 0
+  rivalDirectionAtDestination2: -1
 --- !u!4 &625129027
 Transform:
   m_ObjectHideFlags: 0
@@ -4012,7 +4015,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2435503006587845536, guid: 492b6fb2e4d28fe498232070f965fdf7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.0612723
+      value: -1.811272
       objectReference: {fileID: 0}
     - target: {fileID: 2435503006587845536, guid: 492b6fb2e4d28fe498232070f965fdf7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4240,7 +4243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2435503006587845536, guid: 492b6fb2e4d28fe498232070f965fdf7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.0612723
+      value: -1.811272
       objectReference: {fileID: 0}
     - target: {fileID: 2435503006587845536, guid: 492b6fb2e4d28fe498232070f965fdf7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10579,7 +10582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2435503006587845536, guid: 492b6fb2e4d28fe498232070f965fdf7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.0612723
+      value: -1.811272
       objectReference: {fileID: 0}
     - target: {fileID: 2435503006587845536, guid: 492b6fb2e4d28fe498232070f965fdf7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10698,7 +10701,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2435503006587845536, guid: 492b6fb2e4d28fe498232070f965fdf7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.0612723
+      value: -1.811272
       objectReference: {fileID: 0}
     - target: {fileID: 2435503006587845536, guid: 492b6fb2e4d28fe498232070f965fdf7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10984,7 +10987,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2435503006587845536, guid: 492b6fb2e4d28fe498232070f965fdf7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.0612723
+      value: -1.811272
       objectReference: {fileID: 0}
     - target: {fileID: 2435503006587845536, guid: 492b6fb2e4d28fe498232070f965fdf7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11052,6 +11055,7 @@ MonoBehaviour:
   hitWall: 0
   performJump: 0
   performAutoJump: 0
+  currentDirection: 1
 --- !u!1001 &1857870957
 PrefabInstance:
   m_ObjectHideFlags: 0
