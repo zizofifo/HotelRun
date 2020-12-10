@@ -2721,6 +2721,10 @@ PrefabInstance:
       propertyPath: m_CompositePaths.m_Paths.Array.data[1].Array.data[14].y
       value: 1.5200005
       objectReference: {fileID: 0}
+    - target: {fileID: 3926584656487687157, guid: 375948ff40a49334481ad8cdbfb2994a, type: 3}
+      propertyPath: initialDirectionOfTravel
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 8551202732130149855, guid: 375948ff40a49334481ad8cdbfb2994a, type: 3}
       propertyPath: m_Name
       value: LuggageCartAndBellhop (4)
@@ -4005,6 +4009,10 @@ PrefabInstance:
       propertyPath: m_CompositePaths.m_Paths.Array.data[1].Array.data[14].x
       value: 5.3274984
       objectReference: {fileID: 0}
+    - target: {fileID: 3926584656487687157, guid: 375948ff40a49334481ad8cdbfb2994a, type: 3}
+      propertyPath: initialDirectionOfTravel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8551202732130149855, guid: 375948ff40a49334481ad8cdbfb2994a, type: 3}
       propertyPath: m_Name
       value: LuggageCartAndBellhop (3)
@@ -5058,6 +5066,10 @@ PrefabInstance:
     - target: {fileID: 147106478269173653, guid: 375948ff40a49334481ad8cdbfb2994a, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[1].Array.data[14].x
       value: 5.3274984
+      objectReference: {fileID: 0}
+    - target: {fileID: 3926584656487687157, guid: 375948ff40a49334481ad8cdbfb2994a, type: 3}
+      propertyPath: initialDirectionOfTravel
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8551202732130149855, guid: 375948ff40a49334481ad8cdbfb2994a, type: 3}
       propertyPath: m_Name
@@ -7209,6 +7221,10 @@ PrefabInstance:
       propertyPath: m_CompositePaths.m_Paths.Array.data[1].Array.data[14].y
       value: 1.5200005
       objectReference: {fileID: 0}
+    - target: {fileID: 3926584656487687157, guid: 375948ff40a49334481ad8cdbfb2994a, type: 3}
+      propertyPath: initialDirectionOfTravel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8551202732130149855, guid: 375948ff40a49334481ad8cdbfb2994a, type: 3}
       propertyPath: m_Name
       value: LuggageCartAndBellhop (1)
@@ -8614,6 +8630,10 @@ PrefabInstance:
     - target: {fileID: 147106478269173653, guid: 375948ff40a49334481ad8cdbfb2994a, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[1].Array.data[14].y
       value: 1.5200005
+      objectReference: {fileID: 0}
+    - target: {fileID: 3926584656487687157, guid: 375948ff40a49334481ad8cdbfb2994a, type: 3}
+      propertyPath: initialDirectionOfTravel
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8551202732130149855, guid: 375948ff40a49334481ad8cdbfb2994a, type: 3}
       propertyPath: m_Name
