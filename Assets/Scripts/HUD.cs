@@ -48,7 +48,7 @@ public class HUD : MonoBehaviour
             Keycap.KeycapAppearance.PleaseWait :
             !player.isMotivated && player.sodaCans > 0 ? Keycap.KeycapAppearance.Enabled : Keycap.KeycapAppearance.Disabled);
 
-        tmpTowels.text = "Towels:  " + string.Format("{0:#0}", player.sodaCans);
+        tmpTowels.text = "Towels:  " + string.Format("{0:#0}", player.towels);
 
         towelsKeycap.SetAppearance(player.isUsingTowel ?
             Keycap.KeycapAppearance.PleaseWait :
