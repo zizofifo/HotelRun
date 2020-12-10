@@ -19,6 +19,7 @@ TagManager:
   - Elevator
   - StoryCeiling
   - CeilingLamp
+  - RolledTowel
   layers:
   - Default
   - TransparentFX

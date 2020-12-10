@@ -30,6 +30,12 @@ public class CeilingLamp : MonoBehaviour
             return;
         }
 
+        // Rival doesn't break lamps
+        if (other.gameObject.tag == "Rival")
+        {
+            return;
+        }
+
         Rigidbody2D otherRb;
         if (!other.gameObject.TryGetComponent<Rigidbody2D>(out otherRb))
         {

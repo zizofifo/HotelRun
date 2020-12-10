@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class RivalMovement : MonoBehaviour
 {
+    static public RivalMovement Rival;
     // Start is called before the first frame update
     public float speedMultiplier = 5f;
     public float jumpHeight = 20f;
@@ -20,11 +21,17 @@ public class RivalMovement : MonoBehaviour
     private bool performJump = false;
     [SerializeField]
     private bool performAutoJump = false;
+    [SerializeField]
+    public HorizontalDirection currentDirection = HorizontalDirection.Right;
 
     private Rigidbody2D rb;
 
     void Start()
     {
+        if (Rival == null)
+        {
+            Rival = this;
+        }
         rb = GetComponent<Rigidbody2D>();
         //InvokeRepeating("AutoJump", 2f, 5.5f);
     }
@@ -42,16 +49,18 @@ public class RivalMovement : MonoBehaviour
 
     void MovePlayer()
     {
+        /*
         if (hitWall)
         {
             return;
         }
+        */
 
         Vector2 position = transform.position;
 
         float xMovement = 0.5f;
 
-        position.x += xMovement * speedMultiplier * Time.deltaTime;
+        position.x += (xMovement * (currentDirection == HorizontalDirection.Left ? -1f : 1f)) * speedMultiplier * Time.deltaTime;
         transform.position = position;
 
         bool jumpNow = performJump || performAutoJump;

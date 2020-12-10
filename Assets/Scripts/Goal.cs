@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
+
+    static public int stageCounter = 0;
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -22,8 +24,26 @@ public class Goal : MonoBehaviour
         switch (obj.gameObject.tag)
         {
             case "Player":
-                SceneManager.LoadScene("VictoryScene");
-                break;
+
+                Scene scene = SceneManager.GetActiveScene();
+                string sceneName = scene.name;
+                if (sceneName == "Stage01Scene")
+                {
+                    SceneManager.LoadScene("Stage02Scene");
+                    break;
+                }
+                else if (sceneName == "Stage02Scene")
+                {
+                    SceneManager.LoadScene("Stage03Scene");
+                    break;
+                    
+                }
+                else
+                {
+                    SceneManager.LoadScene("VictoryScene");
+                    break;
+                }
+
             case "Rival":
                 SceneManager.LoadScene("GameOverScene");
                 break;

@@ -5,13 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PingPongMovement : MonoBehaviour
 {
-    public enum Direction
-    {
-        Left,
-        Right,
-    };
-
-    public Direction initialDirectionOfTravel;
+    public HorizontalDirection initialDirectionOfTravel;
 
     /// <summary>
     /// Whether the object is mirrored horizontally, by an instant change of rotation, when its direction of travel changes.
@@ -51,11 +45,11 @@ public class PingPongMovement : MonoBehaviour
 
         if (currentPosition.x < (startPosition.x - (range / 2)))
         {
-            SetDirection(Direction.Right);
+            SetDirection(HorizontalDirection.Right);
         }
         else if (currentPosition.x > (startPosition.x + (range / 2)))
         {
-            SetDirection(Direction.Left);
+            SetDirection(HorizontalDirection.Left);
         }
 
         revisedVelocity = new Vector2(directionOfTravel * speed, 0);
@@ -65,24 +59,24 @@ public class PingPongMovement : MonoBehaviour
         rb.velocity = revisedVelocity;
     }
 
-    private void SetDirection(Direction direction)
+    private void SetDirection(HorizontalDirection direction)
     {
-        Quaternion rotation = transform.rotation;
+        float rotation = 0;
         switch (direction)
         {
-            case Direction.Left:
+            case HorizontalDirection.Left:
                 this.directionOfTravel = LEFT;
-                rotation.y = 0;
+                rotation = -360;
                 break;
-            case Direction.Right:
+            case HorizontalDirection.Right:
                 this.directionOfTravel = RIGHT;
-                rotation.y = -180;
+                rotation = +180;
                 break;
         }
 
         if (this.objectHorizontallyFlips)
         {
-            transform.rotation = rotation;
+            transform.Rotate(Vector3.down * rotation);
         }
     }
 }

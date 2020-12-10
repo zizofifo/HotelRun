@@ -9,12 +9,17 @@ public class Teleporter : MonoBehaviour
     public GameObject sight1;
     public GameObject sight2;
 
-    Vector3 sight1pos;
-    Vector3 sight2pos;
+    public Vector3 sight1pos;
+    public Vector3 sight2pos;
 
     [Header("Set Dynamically")]
     public float distance1;
     public float distance2;
+
+    public float rivalDistance1;
+    public float rivalDistance2;
+
+    public HorizontalDirection rivalDirectionAtDestination2 = HorizontalDirection.Left;
 
     //private Vector2 mousePos;
 
@@ -35,54 +40,82 @@ public class Teleporter : MonoBehaviour
 
         distance1 = Vector3.Distance(sight1pos, Movement.Player.transform.position);
         distance2 = Vector3.Distance(sight2pos, Movement.Player.transform.position);
-        /*
+
+        rivalDistance1 = Vector3.Distance(sight1pos, RivalMovement.Rival.transform.position);
+        rivalDistance2 = Vector3.Distance(sight2pos, RivalMovement.Rival.transform.position);
+
+        /*if (Movement.Player.canWarp == true && Input.GetKeyDown(KeyCode.W))
+        {
+            Invoke("DoTeleportation", 2f);
+        }*/
+        
         if (distance1 <= 5 || distance2 <= 5)
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
-                DoTeleportation();
+                Movement.Player.canWarp = true;
+                Invoke("DoTeleportation", 2f);
             }
-        }*/
+        }
 
+        if (rivalDistance1 <= 5)
+        {
+            Invoke("DoTeleportationRival", 2f);
+        }
 
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    /*void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Stairwell: Enter collision with " + other.gameObject.tag);
+        Debug.Log("Stairwell: Enter trigger with " + other.gameObject.tag);
 
         switch(other.gameObject.tag)
         {
             case "Player":
-                if (Input.GetKeyDown(KeyCode.W))
-                {
-                    DoTeleportation();
-                }
+                Movement.Player.canWarp = true;
                 break;
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("Stairwell: Exit collision with " + other.gameObject.tag);
-    }
+        Debug.Log("Stairwell: Exit trigger with " + other.gameObject.tag);
+
+        switch (other.gameObject.tag)
+        {
+            case "Player":
+                Movement.Player.canWarp = false;
+                break;
+        }
+    }*/
 
     public void DoTeleportation()
     {
         Vector3 newfloorposition;
 
 
-        if (distance1 < distance2)
-        {
-            newfloorposition = new Vector3(sight2.transform.position.x, sight2.transform.position.y, Movement.Player.transform.position.z);
-        }
-
-        else
+        if (distance2 < distance1)
         {
             newfloorposition = new Vector3(sight1.transform.position.x, sight1.transform.position.y, Movement.Player.transform.position.z);
         }
 
+        else
+        {
+            newfloorposition = new Vector3(sight2.transform.position.x, sight2.transform.position.y, Movement.Player.transform.position.z);
+        }
+
+        Movement.Player.canWarp = false;
         Movement.Player.transform.position = newfloorposition;
         Movement.Player.rb.velocity = new Vector3(0,0,0);
+    }
+
+    public void DoTeleportationRival()
+    {
+        Vector3 newfloorposition;
+
+        newfloorposition = new Vector3(sight2.transform.position.x, sight2.transform.position.y, RivalMovement.Rival.transform.position.z);
+
+        RivalMovement.Rival.transform.position = newfloorposition;
+        RivalMovement.Rival.currentDirection = rivalDirectionAtDestination2;
     }
 }
