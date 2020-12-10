@@ -11,6 +11,7 @@ public class HUD : MonoBehaviour
     private Keycap sodasKeycap;
     private TextMeshProUGUI tmpTowels;
     private Keycap towelsKeycap;
+    private Keycap warpKeycap;
 
     public float timer = 0.0f;
     public int seconds;
@@ -25,6 +26,8 @@ public class HUD : MonoBehaviour
 
         tmpTowels = transform.Find("TMPTowels_Text").GetComponent<TextMeshProUGUI>();
         towelsKeycap = transform.Find("TMPTowels_Text/TowelKeycap").GetComponent<Keycap>();
+
+        warpKeycap = transform.Find("TMPWarp_Text/WarpKeycap").GetComponent<Keycap>();
     }
 
     // Update is called once per frame
@@ -53,6 +56,10 @@ public class HUD : MonoBehaviour
         towelsKeycap.SetAppearance(player.isUsingTowel ?
             Keycap.KeycapAppearance.PleaseWait :
             !player.isUsingTowel && player.towels > 0 ? Keycap.KeycapAppearance.Enabled : Keycap.KeycapAppearance.Disabled);
+
+        warpKeycap.SetAppearance(player.isBeingWarped ?
+            Keycap.KeycapAppearance.PleaseWait :
+            player.canWarp ? Keycap.KeycapAppearance.Enabled : Keycap.KeycapAppearance.Disabled);
 
         uitTimer.text = "Time: " + timerText;
     }
