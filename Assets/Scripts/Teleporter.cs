@@ -51,10 +51,23 @@ public class Teleporter : MonoBehaviour
         
         if (distance1 <= 5 || distance2 <= 5)
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (!Movement.Player.canWarp)
             {
                 Movement.Player.canWarp = true;
+            }
+
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                Movement.Player.canWarp = false;
+                Movement.Player.isBeingWarped = true;
                 Invoke("DoTeleportation", 2f);
+            }
+        }
+        else
+        {
+            if (Movement.Player.canWarp && !Movement.Player.isBeingWarped)
+            {
+                Movement.Player.canWarp = false;
             }
         }
 
@@ -104,9 +117,10 @@ public class Teleporter : MonoBehaviour
             newfloorposition = new Vector3(sight2.transform.position.x, sight2.transform.position.y, Movement.Player.transform.position.z);
         }
 
-        Movement.Player.canWarp = false;
         Movement.Player.transform.position = newfloorposition;
         Movement.Player.rb.velocity = new Vector3(0,0,0);
+        Movement.Player.canWarp = true;
+        Movement.Player.isBeingWarped = false;
     }
 
     public void DoTeleportationRival()
