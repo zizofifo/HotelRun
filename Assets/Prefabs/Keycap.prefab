@@ -186,10 +186,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b78f004a566410e489b1b41c3a1795eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keycapTMP: {fileID: 1800960497795674537}
   keycapLetter: 0
-  enabledAppearance: 1
-  anim: {fileID: 0}
+  appearance: 0
 --- !u!222 &8370436058675879318
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -218,7 +216,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c07ab695717738847a6cef4c9bed8e3c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2edcfacce49261c4598966bb0f29a516, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

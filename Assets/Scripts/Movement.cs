@@ -19,6 +19,7 @@ public class Movement : MonoBehaviour
     public bool isStunned = false;
 
     public bool canWarp = false;
+    public bool isBeingWarped = false;
 
     public bool isElectrocuted = false;
     public bool isUsingTowel = false;
@@ -165,6 +166,7 @@ public class Movement : MonoBehaviour
                 speedMultiplier /= 2;
                 inCrowd = true;
                 break;
+            case "Elevator":
             case "Stairwell":
                 canWarp = true;
                 break;
