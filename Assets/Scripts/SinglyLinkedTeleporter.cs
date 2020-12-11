@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stairwell : MonoBehaviour
+public class SinglyLinkedTeleporter : MonoBehaviour
 {
     public GameObject destination;
 
