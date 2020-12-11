@@ -2325,6 +2325,10 @@ PrefabInstance:
       propertyPath: initialDirectionOfTravel
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 3926584656487687157, guid: 375948ff40a49334481ad8cdbfb2994a, type: 3}
+      propertyPath: initialOrientation
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 8551202732130149855, guid: 375948ff40a49334481ad8cdbfb2994a, type: 3}
       propertyPath: m_Name
       value: LuggageCartAndBellhop (4)
@@ -3555,6 +3559,10 @@ PrefabInstance:
       propertyPath: initialDirectionOfTravel
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3926584656487687157, guid: 375948ff40a49334481ad8cdbfb2994a, type: 3}
+      propertyPath: initialOrientation
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 8551202732130149855, guid: 375948ff40a49334481ad8cdbfb2994a, type: 3}
       propertyPath: m_Name
       value: LuggageCartAndBellhop (3)
@@ -4738,8 +4746,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b84ce1251d818ae43bf0077aa0686075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sight1: {fileID: 368498242}
-  sight2: {fileID: 694092453}
+  sight1: {fileID: 694092453}
+  sight2: {fileID: 368498242}
   sight1pos: {x: 0, y: 0, z: 0}
   sight2pos: {x: 0, y: 0, z: 0}
   distance1: 0
@@ -5395,15 +5403,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b84ce1251d818ae43bf0077aa0686075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sight1: {fileID: 895774128}
-  sight2: {fileID: 1090456978}
+  sight1: {fileID: 1090456978}
+  sight2: {fileID: 895774128}
   sight1pos: {x: 0, y: 0, z: 0}
   sight2pos: {x: 0, y: 0, z: 0}
   distance1: 0
   distance2: 0
   rivalDistance1: 0
   rivalDistance2: 0
-  rivalDirectionAtDestination2: -1
+  rivalDirectionAtDestination2: 1
 --- !u!4 &1031891803
 Transform:
   m_ObjectHideFlags: 0
@@ -6406,6 +6414,10 @@ PrefabInstance:
     - target: {fileID: 3926584656487687157, guid: 375948ff40a49334481ad8cdbfb2994a, type: 3}
       propertyPath: initialDirectionOfTravel
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3926584656487687157, guid: 375948ff40a49334481ad8cdbfb2994a, type: 3}
+      propertyPath: initialOrientation
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8551202732130149855, guid: 375948ff40a49334481ad8cdbfb2994a, type: 3}
       propertyPath: m_Name
