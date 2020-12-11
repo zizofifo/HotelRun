@@ -20,6 +20,7 @@ TagManager:
   - StoryCeiling
   - CeilingLamp
   - RolledTowel
+  - Goal
   layers:
   - Default
   - TransparentFX
