@@ -4135,7 +4135,7 @@ MonoBehaviour:
   distance2: 0
   rivalDistance1: 0
   rivalDistance2: 0
-  rivalDirectionAtDestination2: -1
+  rivalDirectionAtDestination2: 1
 --- !u!4 &1319086003
 Transform:
   m_ObjectHideFlags: 0
