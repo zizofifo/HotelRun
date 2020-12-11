@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedMultiplier: 15
-  jumpHeight: 20
+  jumpHeight: 15
   isJumping: 0
   canJump: 1
   hitWall: 0
