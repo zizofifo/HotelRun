@@ -21988,22 +21988,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1155615225, guid: aadfb0a1c3805524f805974fcb74d7c9, type: 3}
-      propertyPath: speedMultiplier
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1155615225, guid: aadfb0a1c3805524f805974fcb74d7c9, type: 3}
-      propertyPath: jumpHeight
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1155615225, guid: aadfb0a1c3805524f805974fcb74d7c9, type: 3}
-      propertyPath: PlayerSprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1155615225, guid: aadfb0a1c3805524f805974fcb74d7c9, type: 3}
-      propertyPath: speedCap
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 1620019929901659830, guid: aadfb0a1c3805524f805974fcb74d7c9, type: 3}
       propertyPath: m_Name
       value: PlayerSprite
@@ -52838,31 +52822,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 492b6fb2e4d28fe498232070f965fdf7, type: 3}
---- !u!1 &1744735417 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2100416216804636955, guid: 5ecd7042d39b60b439629f6e2eddefd3, type: 3}
-  m_PrefabInstance: {fileID: 848490867}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1744735422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1744735417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23e44f586cff09947b48c3013d6a2a15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedMultiplier: 5
-  jumpHeight: 5
-  isJumping: 0
-  canJump: 1
-  hitWall: 0
-  performJump: 0
-  performAutoJump: 0
-  currentDirection: 1
 --- !u!1001 &1788384185
 PrefabInstance:
   m_ObjectHideFlags: 0
