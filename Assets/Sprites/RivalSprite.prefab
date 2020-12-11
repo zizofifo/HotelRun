@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2100416216804636955}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3934356, y: 3.5810988, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -103,6 +103,8 @@ MonoBehaviour:
   canJump: 1
   hitWall: 0
   performJump: 0
+  performAutoJump: 0
+  currentDirection: 1
 --- !u!61 &8208858990128773502
 BoxCollider2D:
   m_ObjectHideFlags: 0
