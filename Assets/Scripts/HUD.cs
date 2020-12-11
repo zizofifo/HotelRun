@@ -16,6 +16,7 @@ public class HUD : MonoBehaviour
     public float timer = 0.0f;
     public int seconds;
     public int minutes;
+    static public string timerText;
 
     void Awake()
     {
@@ -43,7 +44,7 @@ public class HUD : MonoBehaviour
 
     void UpdateGUI()
     {
-        string timerText = string.Format("{0:0}:{1:00}", minutes, seconds);
+        timerText = string.Format("{0:0}:{1:00}", minutes, seconds);
 
         tmpSodas.text = "Sodas:   " + string.Format("{0:#0}", player.sodaCans);
 

@@ -7,6 +7,7 @@ public class Goal : MonoBehaviour
 {
 
     static public int stageCounter = 0;
+    static public string endTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +41,7 @@ public class Goal : MonoBehaviour
                 }
                 else
                 {
+                    endTime = HUD.timerText;
                     SceneManager.LoadScene("VictoryScene");
                     break;
                 }
