@@ -211,9 +211,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: 0
-  chanceToOpen: 0.0005
+  chanceToOpen: 0.00025
   minimumTimeAllowedOpened: 2
-  maximumTimeAllowedOpened: 5
+  maximumTimeAllowedOpened: 3
   state: 0
   timeRemainingOpened: 0
 --- !u!212 &2907549069970609412
