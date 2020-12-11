@@ -58,9 +58,11 @@ public class HUD : MonoBehaviour
             Keycap.KeycapAppearance.PleaseWait :
             !player.isUsingTowel && player.towels > 0 ? Keycap.KeycapAppearance.Enabled : Keycap.KeycapAppearance.Disabled);
 
+        /*
         warpKeycap.SetAppearance(player.isBeingWarped ?
             Keycap.KeycapAppearance.PleaseWait :
             player.canWarp ? Keycap.KeycapAppearance.Enabled : Keycap.KeycapAppearance.Disabled);
+        */
 
         uitTimer.text = "Time: " + timerText;
     }
