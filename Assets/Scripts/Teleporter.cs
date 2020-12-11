@@ -65,7 +65,7 @@ public class Teleporter : MonoBehaviour
         }
         else
         {
-            if (Movement.Player.canWarp && !Movement.Player.isBeingWarped)
+            if (!Movement.Player.isBeingWarped)
             {
                 Movement.Player.canWarp = false;
             }
