@@ -6,6 +6,7 @@ using UnityEngine;
 public class PingPongMovement : MonoBehaviour
 {
     public HorizontalDirection initialDirectionOfTravel;
+    public HorizontalDirection initialOrientation = HorizontalDirection.Right;
 
     /// <summary>
     /// Whether the object is mirrored horizontally, by an instant change of rotation, when its direction of travel changes.
@@ -33,6 +34,7 @@ public class PingPongMovement : MonoBehaviour
         startPosition = transform.position;
         rb = GetComponent<Rigidbody2D>();
         SetDirection(initialDirectionOfTravel);
+        SetOrientation(initialOrientation);
     }
 
     // Update is called once per frame
@@ -78,5 +80,12 @@ public class PingPongMovement : MonoBehaviour
         {
             transform.Rotate(Vector3.down * rotation);
         }
+    }
+
+    void SetOrientation(HorizontalDirection direction)
+    {
+        Vector3 scale = transform.localScale;
+        scale.x *= (float)direction;
+        transform.localScale = scale;
     }
 }
