@@ -598,8 +598,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209405360}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 65.003, y: 47.522, z: 1.95}
-  m_LocalScale: {x: 1.5871334, y: 1.1273209, z: 1}
+  m_LocalPosition: {x: 65.003, y: 49.022, z: 1.95}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 82
@@ -852,10 +852,6 @@ PrefabInstance:
     - target: {fileID: 7153785576434717697, guid: d315eebb5f1c2e543b6852b45433c5aa, type: 3}
       propertyPath: m_Name
       value: Stairwell (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7153785576434717697, guid: d315eebb5f1c2e543b6852b45433c5aa, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7631796776215556033, guid: d315eebb5f1c2e543b6852b45433c5aa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2325,6 +2321,10 @@ PrefabInstance:
       propertyPath: initialDirectionOfTravel
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 3926584656487687157, guid: 375948ff40a49334481ad8cdbfb2994a, type: 3}
+      propertyPath: initialOrientation
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 8551202732130149855, guid: 375948ff40a49334481ad8cdbfb2994a, type: 3}
       propertyPath: m_Name
       value: LuggageCartAndBellhop (4)
@@ -2407,8 +2407,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662097929}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -64.977, y: 17.482, z: 1.95}
-  m_LocalScale: {x: 1.5321119, y: 1.115253, z: 1}
+  m_LocalPosition: {x: -64.977, y: 18.982, z: 1.95}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 84
@@ -3554,6 +3554,10 @@ PrefabInstance:
     - target: {fileID: 3926584656487687157, guid: 375948ff40a49334481ad8cdbfb2994a, type: 3}
       propertyPath: initialDirectionOfTravel
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3926584656487687157, guid: 375948ff40a49334481ad8cdbfb2994a, type: 3}
+      propertyPath: initialOrientation
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8551202732130149855, guid: 375948ff40a49334481ad8cdbfb2994a, type: 3}
       propertyPath: m_Name
@@ -4738,8 +4742,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b84ce1251d818ae43bf0077aa0686075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sight1: {fileID: 368498242}
-  sight2: {fileID: 694092453}
+  sight1: {fileID: 694092453}
+  sight2: {fileID: 368498242}
   sight1pos: {x: 0, y: 0, z: 0}
   sight2pos: {x: 0, y: 0, z: 0}
   distance1: 0
@@ -4960,10 +4964,6 @@ PrefabInstance:
     - target: {fileID: 7153785576434717697, guid: d315eebb5f1c2e543b6852b45433c5aa, type: 3}
       propertyPath: m_Name
       value: Stairwell (7)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7153785576434717697, guid: d315eebb5f1c2e543b6852b45433c5aa, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7631796776215556033, guid: d315eebb5f1c2e543b6852b45433c5aa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5342,7 +5342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6442153099855988827, guid: a16ddd25bc4fb244f89a24d80764f7a3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6442153099855988827, guid: a16ddd25bc4fb244f89a24d80764f7a3, type: 3}
       propertyPath: m_RootOrder
@@ -5395,15 +5395,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b84ce1251d818ae43bf0077aa0686075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sight1: {fileID: 895774128}
-  sight2: {fileID: 1090456978}
+  sight1: {fileID: 1090456978}
+  sight2: {fileID: 895774128}
   sight1pos: {x: 0, y: 0, z: 0}
   sight2pos: {x: 0, y: 0, z: 0}
   distance1: 0
   distance2: 0
   rivalDistance1: 0
   rivalDistance2: 0
-  rivalDirectionAtDestination2: -1
+  rivalDirectionAtDestination2: 1
 --- !u!4 &1031891803
 Transform:
   m_ObjectHideFlags: 0
@@ -5581,10 +5581,6 @@ PrefabInstance:
     - target: {fileID: 7153785576434717697, guid: d315eebb5f1c2e543b6852b45433c5aa, type: 3}
       propertyPath: m_Name
       value: Stairwell (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7153785576434717697, guid: d315eebb5f1c2e543b6852b45433c5aa, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7631796776215556033, guid: d315eebb5f1c2e543b6852b45433c5aa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6407,6 +6403,10 @@ PrefabInstance:
       propertyPath: initialDirectionOfTravel
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3926584656487687157, guid: 375948ff40a49334481ad8cdbfb2994a, type: 3}
+      propertyPath: initialOrientation
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 8551202732130149855, guid: 375948ff40a49334481ad8cdbfb2994a, type: 3}
       propertyPath: m_Name
       value: LuggageCartAndBellhop (1)
@@ -6500,7 +6500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6442153099855988827, guid: a16ddd25bc4fb244f89a24d80764f7a3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.5
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 6442153099855988827, guid: a16ddd25bc4fb244f89a24d80764f7a3, type: 3}
       propertyPath: m_RootOrder
@@ -6679,8 +6679,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1452986828}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -64.975, y: 62.487, z: 1.95}
-  m_LocalScale: {x: 1.5499352, y: 1.1198566, z: 1}
+  m_LocalPosition: {x: -64.975, y: 63.987, z: 1.95}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 83
@@ -6814,8 +6814,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1502304356}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 65.016, y: 2.507, z: 1.95}
-  m_LocalScale: {x: 1.5468775, y: 1.1212586, z: 1}
+  m_LocalPosition: {x: 65.016, y: 4.007, z: 1.95}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 81
@@ -8077,10 +8077,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stairwell
       objectReference: {fileID: 0}
-    - target: {fileID: 7153785576434717697, guid: d315eebb5f1c2e543b6852b45433c5aa, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 7631796776215556033, guid: d315eebb5f1c2e543b6852b45433c5aa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 50
@@ -8120,7 +8116,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6442153099855988827, guid: a16ddd25bc4fb244f89a24d80764f7a3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 47.5
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: 6442153099855988827, guid: a16ddd25bc4fb244f89a24d80764f7a3, type: 3}
       propertyPath: m_RootOrder
@@ -8764,7 +8760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6442153099855988827, guid: a16ddd25bc4fb244f89a24d80764f7a3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 62.5
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 6442153099855988827, guid: a16ddd25bc4fb244f89a24d80764f7a3, type: 3}
       propertyPath: m_RootOrder

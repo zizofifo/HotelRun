@@ -119,7 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerControlled: 1
   speedMultiplier: 11
-  jumpHeight: 10
+  jumpHeight: 12
   speedCap: 20
   velocity: {x: 0, y: 0}
   isMotivated: 0
