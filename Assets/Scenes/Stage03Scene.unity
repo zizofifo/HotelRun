@@ -4686,15 +4686,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b84ce1251d818ae43bf0077aa0686075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sight1: {fileID: 928810625}
-  sight2: {fileID: 159005702}
+  sight1: {fileID: 159005702}
+  sight2: {fileID: 928810625}
   sight1pos: {x: 0, y: 0, z: 0}
   sight2pos: {x: 0, y: 0, z: 0}
   distance1: 0
   distance2: 0
   rivalDistance1: 0
   rivalDistance2: 0
-  rivalDirectionAtDestination2: -1
+  rivalDirectionAtDestination2: 1
 --- !u!4 &857013154
 Transform:
   m_ObjectHideFlags: 0
